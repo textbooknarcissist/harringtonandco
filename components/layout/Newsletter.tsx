@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 
 const Newsletter: React.FC = () => {
   return (
-    <section className="bg-[#0F1E2E] py-16 md:py-20 border-t border-white/5 relative overflow-hidden" aria-labelledby="newsletter-heading">
+    <section className="bg-[#0F1E2E] pt-16 md:pt-20 pb-12 border-t border-white/5 relative overflow-hidden" aria-labelledby="newsletter-heading">
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         <div className="flex flex-col items-center text-center">
           {/* Tagline */}

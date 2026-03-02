@@ -3,7 +3,7 @@ import { Mail, Phone, Twitter, Instagram, Linkedin, MapPin, ArrowUpRight, Heart 
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#0F1E2E] text-[#F7F5F0] pt-16 pb-8 border-t border-white/5" aria-labelledby="footer-heading">
+    <footer className="bg-[#0F1E2E] text-[#F7F5F0] pt-12 pb-8 border-t border-white/5" aria-labelledby="footer-heading">
       <h2 id="footer-heading" className="sr-only">Footer</h2>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
@@ -22,8 +22,8 @@ const Footer: React.FC = () => {
                     <Mail size={14} className="text-[#C6A75E]" />
                   </div>
                   <div>
-                    <span className="block text-[10px] text-white/30 uppercase tracking-[0.2em] font-bold">Email</span>
-                    <span className="block text-xs font-medium group-hover:text-[#C6A75E] transition-colors font-sans">mfredebel@gmail.com</span>
+                    <span className="block text-[10px] text-white/60 uppercase tracking-[0.2em] font-bold">Email</span>
+                    <span className="block text-xs font-light group-hover:text-[#C6A75E] transition-colors font-sans">mfredebel@gmail.com</span>
                   </div>
                 </a>
 
@@ -36,8 +36,8 @@ const Footer: React.FC = () => {
                     <Phone size={14} className="text-[#C6A75E]" />
                   </div>
                   <div>
-                    <span className="block text-[10px] text-white/30 uppercase tracking-[0.2em] font-bold">Phone</span>
-                    <span className="block text-xs font-medium group-hover:text-[#C6A75E] transition-colors font-sans">09065624016</span>
+                    <span className="block text-[10px] text-white/60 uppercase tracking-[0.2em] font-bold">Phone</span>
+                    <span className="block text-xs font-light group-hover:text-[#C6A75E] transition-colors font-sans">09065624016</span>
                   </div>
                 </a>
               </div>
@@ -53,7 +53,7 @@ const Footer: React.FC = () => {
                   const href = item === 'Home' ? '#/' : `#/${item.toLowerCase().replace(' ', '')}`;
                   return (
                     <li key={item}>
-                      <a href={href} className="text-xs text-[#F7F5F0]/50 hover:text-[#C6A75E] transition-all duration-300 flex items-center group font-sans">
+                      <a href={href} className="text-xs text-[#F7F5F0]/70 hover:text-[#C6A75E] transition-all duration-300 flex items-center group font-sans">
                         {item}
                       </a>
                     </li>
@@ -74,9 +74,9 @@ const Footer: React.FC = () => {
                   { name: 'Client Portal', href: '#' }
                 ].map((item) => (
                   <li key={item.name}>
-                    <a href={item.href} className="text-xs text-[#F7F5F0]/50 hover:text-[#C6A75E] transition-all duration-300 flex items-center justify-between group font-sans">
+                    <a href={item.href} className="text-xs text-[#F7F5F0]/70 hover:text-[#C6A75E] transition-all duration-300 flex items-center justify-between group font-sans">
                       {item.name}
-                      <ArrowUpRight size={10} className="opacity-0 group-hover:opacity-40 transition-opacity" />
+                      <ArrowUpRight size={10} className="opacity-0 group-hover:opacity-60 transition-opacity" />
                     </a>
                   </li>
                 ))}
