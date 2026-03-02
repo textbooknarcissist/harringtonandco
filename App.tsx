@@ -3,6 +3,7 @@ import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Newsletter from './components/layout/Newsletter';
 import BackToTop from './components/ui/BackToTop';
+import LoadingBar from './components/ui/LoadingBar';
 
 // Lazy load pages
 const HomePage = lazy(() => import('./pages/HomePage'));
@@ -51,8 +52,10 @@ const App: React.FC = () => {
     <div className="flex flex-col min-h-screen bg-[#F7F5F0]">
       <Navbar currentPath={currentPath} />
       <main className="grow">
-        <Suspense fallback={<div className="flex items-center justify-center min-h-screen">Loading...</div>}>
-          {renderPage()}
+        <Suspense fallback={<LoadingBar />}>
+          <div key={currentPath} className="animate-in fade-in duration-700">
+            {renderPage()}
+          </div>
         </Suspense>
       </main>
       <Newsletter />
