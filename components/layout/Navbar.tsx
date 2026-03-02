@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import { NAV_LINKS } from '../constants';
-import Logo from './Logo';
+import { NAV_LINKS } from '../../constants';
+import Logo from '../ui/Logo';
 
 interface NavbarProps {
   currentPath?: string;
@@ -26,16 +26,17 @@ const Navbar: React.FC<NavbarProps> = ({ currentPath = '#/' }) => {
   };
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-500 ${
-      scrolled ? 'bg-[#0F1E2E]/95 backdrop-blur-md shadow-2xl py-3' : 'bg-transparent py-5'
-    }`}>
+    <nav className={`fixed top-0 left-0 w-full z-60 transition-all duration-700 ${scrolled ? 'bg-[#0F1E2E]/95 backdrop-blur-md shadow-2xl py-3' : 'bg-transparent py-5'
+      }`}
+      aria-label="Main navigation"
+    >
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="flex justify-between items-center h-16">
-          <a href="#/" className="flex items-center space-x-3 group shrink-0">
+          <a href="#/" className="flex items-center space-x-3 group shrink-0" aria-label="Harrington & Co. Home">
             <Logo className="w-8 h-8 md:w-9 md:h-9" light={true} />
-            <div className="flex flex-col">
-              <span className="text-sm md:text-lg font-bold tracking-[0.3em] text-[#F7F5F0] serif leading-tight uppercase">HARRINGTON</span>
-              <span className="text-[7px] md:text-[8px] tracking-[0.6em] text-[#C6A75E] font-bold uppercase -mt-0.5 md:-mt-1 opacity-80">AND CO</span>
+            <div className="flex flex-col justify-center">
+              <span className="text-sm md:text-base font-bold tracking-[0.3em] text-[#F7F5F0] serif leading-none uppercase">HARRINGTON</span>
+              <span className="text-[7px] md:text-[8px] tracking-[0.5em] text-[#C6A75E] font-bold uppercase mt-1 opacity-90">AND CO</span>
             </div>
           </a>
 
@@ -47,12 +48,12 @@ const Navbar: React.FC<NavbarProps> = ({ currentPath = '#/' }) => {
                 <a
                   key={link.name}
                   href={link.href}
-                  className={`text-[9px] font-bold uppercase tracking-[0.3em] transition-all relative group py-2 ${
-                    active ? 'text-[#C6A75E]' : 'text-[#F7F5F0]/60 hover:text-[#C6A75E]'
-                  }`}
+                  className={`text-[9px] font-bold uppercase tracking-[0.3em] transition-all relative group py-2 ${active ? 'text-[#C6A75E]' : 'text-[#F7F5F0]/60 hover:text-[#C6A75E]'
+                    }`}
+                  aria-current={active ? 'page' : undefined}
                 >
                   {link.name}
-                  <span className={`absolute bottom-0 left-0 h-[1px] bg-[#C6A75E] transition-all duration-500 ${active ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+                  <div className="absolute -bottom-[2px] left-0 w-full h-px bg-[#C6A75E] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
                 </a>
               );
             })}
@@ -66,8 +67,8 @@ const Navbar: React.FC<NavbarProps> = ({ currentPath = '#/' }) => {
 
           {/* Mobile Toggle Button */}
           <div className="md:hidden flex items-center">
-            <button 
-              onClick={() => setIsOpen(true)} 
+            <button
+              onClick={() => setIsOpen(true)}
               className="text-[#F7F5F0] p-2 hover:text-[#C6A75E] transition-colors"
               aria-label="Open menu"
             >
@@ -78,18 +79,17 @@ const Navbar: React.FC<NavbarProps> = ({ currentPath = '#/' }) => {
       </div>
 
       {/* COMPACT MOBILE SIDEBAR: Shorter, Narrower, with Blur */}
-      <div className={`fixed top-4 right-4 h-auto w-64 bg-[#0F1E2E]/90 backdrop-blur-xl z-[60] transform transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] shadow-[-10px_10px_40px_rgba(0,0,0,0.5)] flex flex-col rounded-2xl border border-white/10 ${
-        isOpen ? 'translate-x-0 opacity-100 scale-100' : 'translate-x-full opacity-0 scale-95 pointer-events-none'
-      }`}>
+      <div className={`fixed top-4 right-4 h-auto w-64 bg-[#0F1E2E]/90 backdrop-blur-xl z-60 transform transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] shadow-[-10px_10px_40px_rgba(0,0,0,0.5)] flex flex-col rounded-2xl border border-white/10 ${isOpen ? 'translate-x-0 opacity-100 scale-100' : 'translate-x-full opacity-0 scale-95 pointer-events-none'
+        }`}>
         <div className="flex flex-col h-full p-6 pt-16 relative">
-          <button 
-            onClick={() => setIsOpen(false)} 
+          <button
+            onClick={() => setIsOpen(false)}
             className="absolute top-5 right-5 text-[#F7F5F0]/60 hover:text-[#C6A75E] transition-colors"
             aria-label="Close menu"
           >
             <X className="w-5 h-5" />
           </button>
-          
+
           <div className="flex flex-col space-y-1">
             {NAV_LINKS.map((link) => {
               const active = isActive(link.href);
@@ -98,17 +98,16 @@ const Navbar: React.FC<NavbarProps> = ({ currentPath = '#/' }) => {
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className={`text-[9px] font-bold uppercase tracking-[0.2em] py-4 px-4 transition-all rounded-lg border-l-2 ${
-                    active 
-                      ? 'text-[#C6A75E] border-[#C6A75E] bg-white/5' 
-                      : 'text-[#F7F5F0]/70 border-transparent hover:text-[#C6A75E] hover:bg-white/5'
-                  }`}
+                  className={`text-[9px] font-bold uppercase tracking-[0.2em] py-4 px-4 transition-all rounded-lg border-l-2 ${active
+                    ? 'text-[#C6A75E] border-[#C6A75E] bg-white/5'
+                    : 'text-[#F7F5F0]/70 border-transparent hover:text-[#C6A75E] hover:bg-white/5'
+                    }`}
                 >
                   {link.name}
                 </a>
               );
             })}
-            
+
             <a
               href="#/contact"
               onClick={() => setIsOpen(false)}
@@ -124,12 +123,11 @@ const Navbar: React.FC<NavbarProps> = ({ currentPath = '#/' }) => {
           </div>
         </div>
       </div>
-      
+
       {/* Overlay Backdrop */}
-      <div 
-        className={`fixed inset-0 bg-black/40 backdrop-blur-sm md:hidden z-[55] transition-opacity duration-500 ${
-          isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-        }`} 
+      <div
+        className={`fixed inset-0 bg-black/40 backdrop-blur-sm md:hidden z-55 transition-opacity duration-500 ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+          }`}
         onClick={() => setIsOpen(false)}
       ></div>
     </nav>

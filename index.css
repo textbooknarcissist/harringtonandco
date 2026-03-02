@@ -47,15 +47,26 @@
 body {
   font-family: 'Montserrat', sans-serif;
   scroll-behavior: smooth;
-  background-color: #FBFBF9; /* Slightly brighter refined paper color */
+  background-color: #FBFBF9;
+  /* Slightly brighter refined paper color */
   color: #0F1E2E;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, .serif {
+h1,
+h2,
+h3,
+h4,
+.serif {
   font-family: 'Playfair Display', serif;
-  color: #0F1E2E;
+}
+
+/* Ensure no gaps between sections */
+section {
+  position: relative;
+  margin-top: -1px;
+  /* Overlap to prevent sub-pixel white gaps */
 }
 
 .mono {
@@ -84,8 +95,13 @@ h1, h2, h3, h4, .serif {
 
 /* Ticker Animation */
 @keyframes ticker {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .ticker-content {
@@ -110,7 +126,14 @@ h1, h2, h3, h4, .serif {
   transform: translateY(0);
 }
 
+/* Ensure no gaps between sections */
+section {
+  margin-top: -1px;
+  /* Overlap slightly to prevent sub-pixel gaps */
+}
+
 /* Base Transitions for standard interactions */
-a, button {
+a,
+button {
   transition: all 0.3s ease-in-out;
 }

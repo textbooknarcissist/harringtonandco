@@ -1,6 +1,7 @@
 import React from 'react';
 import { ShieldCheck, Compass, Layers, Landmark, Instagram, Twitter, Linkedin, Target, Eye, Gem } from 'lucide-react';
-import TrackRecord from '../components/TrackRecord';
+import TrackRecord from '../components/features/TrackRecord';
+import AboutSection from '../components/features/AboutSection';
 
 const AboutPage: React.FC = () => {
   return (
@@ -9,8 +10,8 @@ const AboutPage: React.FC = () => {
       <section className="relative pt-56 pb-40 overflow-hidden flex flex-col items-center justify-center text-center px-6">
         {/* Background Image with Desaturated Overlay */}
         <div className="absolute inset-0 z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&q=80&w=2000" 
+          <img
+            src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&q=80&w=2000"
             alt="Library Architecture"
             className="w-full h-full object-cover object-center grayscale brightness-[0.3] scale-105"
           />
@@ -22,13 +23,13 @@ const AboutPage: React.FC = () => {
             <span className="text-[#C6A75E] font-bold tracking-[0.6em] uppercase text-[10px] md:text-xs mb-4 animate-in fade-in slide-in-from-top-4 duration-1000">
               Our Heritage
             </span>
-            <div className="w-12 h-[1px] bg-[#C6A75E]/40"></div>
+            <div className="w-12 h-px bg-[#C6A75E]/40"></div>
           </div>
-          
+
           <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-[#F7F5F0] mb-8 serif leading-[1.1] animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-150">
             Defining the Standards <br className="hidden sm:block" /> of Global Advocacy.
           </h1>
-          
+
           <p className="max-w-2xl text-sm md:text-base text-[#F7F5F0]/70 font-light leading-relaxed mx-auto animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-500">
             Harrington and Co serves as the definitive vanguard for elite interests, blending generational wisdom with contemporary strategic rigor.
           </p>
@@ -37,7 +38,7 @@ const AboutPage: React.FC = () => {
         {/* Minimal Scroll Cue */}
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 opacity-30">
           <span className="text-[8px] uppercase tracking-[0.5em] text-[#F7F5F0] font-bold">The Legacy</span>
-          <div className="w-[1px] h-12 bg-gradient-to-b from-[#C6A75E] to-transparent"></div>
+          <div className="w-px h-12 bg-linear-to-b from-[#C6A75E] to-transparent"></div>
         </div>
       </section>
 
@@ -47,9 +48,9 @@ const AboutPage: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div className="relative group">
               <div className="absolute -inset-4 border border-[#C6A75E]/20 rounded-sm -z-10 group-hover:scale-105 transition-transform duration-700"></div>
-              <img 
-                src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=1200" 
-                alt="Architectural Detail" 
+              <img
+                src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=1200"
+                alt="Architectural Detail"
                 className="w-full h-[600px] object-cover grayscale brightness-75 hover:grayscale-0 transition-all duration-1000"
               />
               <div className="absolute bottom-10 left-10 right-10 p-8 bg-[#0F1E2E]/90 backdrop-blur-md border-l-4 border-[#C6A75E]">
@@ -90,17 +91,17 @@ const AboutPage: React.FC = () => {
       {/* The Strategic Mandate: Mission, Vision, Values (Non-card design) */}
       <section className="py-32 bg-[#0F1E2E] relative overflow-hidden">
         {/* Background Accent */}
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-[#C6A75E]/[0.02] pointer-events-none"></div>
-        
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-[#C6A75E]/2 pointer-events-none"></div>
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl mb-24">
             <span className="text-[#C6A75E] font-bold tracking-[0.4em] uppercase text-xs mb-6 block">Our Strategic Mandate</span>
             <h2 className="text-4xl md:text-6xl text-[#F7F5F0] font-bold serif leading-tight">Engineering the Future of Advocacy.</h2>
           </div>
-          
+
           <div className="space-y-32 relative">
             {/* Connecting Line */}
-            <div className="absolute left-[39px] top-10 bottom-10 w-[1px] bg-gradient-to-b from-[#C6A75E] via-[#C6A75E]/20 to-transparent hidden md:block"></div>
+            <div className="absolute left-[39px] top-10 bottom-10 w-px bg-linear-to-b from-[#C6A75E] via-[#C6A75E]/20 to-transparent hidden md:block"></div>
 
             {/* Mission */}
             <div className="relative md:pl-24 group">
@@ -141,7 +142,7 @@ const AboutPage: React.FC = () => {
               <div className="max-w-4xl">
                 <h3 className="text-[#C6A75E] text-xs font-bold uppercase tracking-[0.5em] mb-4">Core Values</h3>
                 <h4 className="text-3xl md:text-4xl text-[#F7F5F0] font-bold serif mb-12">Foundational Integrity. <br /> Absolute Precision.</h4>
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                   <div className="space-y-4">
                     <h5 className="text-[#F7F5F0] font-bold serif text-xl">Integrity</h5>

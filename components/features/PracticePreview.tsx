@@ -36,14 +36,14 @@ const PracticePreview: React.FC = () => {
                 {area.icon}
               </div>
               <h3 className="text-2xl font-bold text-[#0F1E2E] mb-4 serif transition-colors group-hover:text-[#C6A75E]">{area.title}</h3>
-              <p className="text-slate-500 leading-relaxed font-light text-sm">{area.desc}</p>
+              <p className="text-[#2D3748] leading-relaxed font-light text-sm">{area.desc}</p>
             </div>
           ))}
         </div>
 
         <div className="text-center">
-          <a 
-            href="#/practice" 
+          <a
+            href="#/practice"
             className="inline-flex items-center px-10 py-5 border border-[#0F1E2E] text-[#0F1E2E] font-bold uppercase tracking-[0.2em] text-[10px] hover:bg-[#0F1E2E] hover:text-[#F7F5F0] transition-all duration-300 group"
           >
             Explore All Practice Areas

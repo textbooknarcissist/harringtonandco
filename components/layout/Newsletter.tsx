@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 const Newsletter: React.FC = () => {
   return (
-    <section className="bg-[#0F1E2E] py-16 md:py-20 border-t border-white/5 relative overflow-hidden">
+    <section className="bg-[#0F1E2E] py-16 md:py-20 border-t border-white/5 relative overflow-hidden" aria-labelledby="newsletter-heading">
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         <div className="flex flex-col items-center text-center">
           {/* Tagline */}
@@ -10,7 +10,7 @@ const Newsletter: React.FC = () => {
             <p className="text-[#F7F5F0] text-xl md:text-2xl font-light leading-relaxed serif italic">
               Visionary Counsel. Decisive Action. <span className="text-[#C6A75E]">Your Competitive Legal Advantage.</span>
             </p>
-            <p className="text-[#F7F5F0]/40 text-xs mt-3 font-medium uppercase tracking-[0.3em]">
+            <p className="text-[#F7F5F0]/70 text-xs mt-3 font-medium uppercase tracking-[0.3em]">
               Elite representation for complex global challenges.
             </p>
           </div>
@@ -18,12 +18,12 @@ const Newsletter: React.FC = () => {
           {/* Form Container */}
           <div className="w-full bg-white/5 p-8 md:p-10 backdrop-blur-sm border border-white/10 rounded-sm shadow-2xl">
             <div className="mb-6">
-              <h3 className="text-2xl md:text-3xl font-bold text-[#F7F5F0] serif mb-2">Stay Informed</h3>
+              <h2 id="newsletter-heading" className="text-2xl md:text-3xl font-bold text-[#F7F5F0] serif mb-2">Stay Informed</h2>
               <p className="text-[#F7F5F0]/50 text-sm font-light">Join our inner circle for exclusive legal briefs and regulatory updates.</p>
             </div>
-            
-            <form className="flex flex-col sm:flex-row gap-3" action="#" method="POST">
-              <div className="flex-grow">
+
+            <form className="flex flex-col sm:flex-row gap-3" onSubmit={(e) => e.preventDefault()}>
+              <div className="grow">
                 <label htmlFor="newsletter-email" className="sr-only">Professional email address</label>
                 <input
                   type="email"
@@ -32,20 +32,20 @@ const Newsletter: React.FC = () => {
                   autoComplete="email"
                   required
                   placeholder="Professional email address"
-                  className="w-full px-5 py-4 bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#C6A75E] focus:bg-white/10 placeholder:text-white/20 transition-all font-light text-sm"
+                  className="w-full px-5 py-4 bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#C6A75E] focus:bg-white/10 placeholder:text-white/40 transition-all font-light text-sm font-sans"
                 />
               </div>
-              <button 
-                type="submit" 
+              <button
+                type="submit"
                 className="bg-[#C6A75E] text-[#0F1E2E] px-8 py-4 font-bold uppercase tracking-[0.2em] text-[10px] hover:bg-[#F7F5F0] transition-all duration-300 shadow-lg whitespace-nowrap"
               >
                 Subscribe
               </button>
             </form>
-            
+
             <div className="flex items-center justify-center gap-2 mt-6">
               <div className="w-1 h-1 rounded-full bg-[#C6A75E]"></div>
-              <p className="text-white/20 text-[9px] uppercase tracking-widest font-bold">Privacy prioritized. Discretion assured.</p>
+              <p className="text-white/60 text-[9px] uppercase tracking-widest font-bold">Privacy prioritized. Discretion assured.</p>
             </div>
           </div>
         </div>
@@ -59,4 +59,4 @@ const Newsletter: React.FC = () => {
   );
 };
 
-export default Newsletter;
+export default memo(Newsletter);

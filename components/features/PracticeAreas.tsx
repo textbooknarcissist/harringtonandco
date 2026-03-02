@@ -1,6 +1,6 @@
 import React from 'react';
 import { Scale, Shield, Briefcase, Users, FileText, Landmark } from 'lucide-react';
-import { PRACTICE_AREAS } from '../constants';
+import { PRACTICE_AREAS } from '../../constants';
 
 const iconMap: { [key: string]: React.ReactNode } = {
   Scale: <Scale className="w-8 h-8" />,
@@ -26,8 +26,8 @@ const PracticeAreas: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border-t border-l border-slate-100 shadow-2xl">
           {PRACTICE_AREAS.map((area) => (
-            <div 
-              key={area.id} 
+            <div
+              key={area.id}
               className="p-12 border-r border-b border-slate-100 bg-white hover:bg-[#1a2b23] transition-all duration-500 group relative"
             >
               <div className="mb-8 text-[#d4af37] group-hover:scale-110 transition-transform duration-500 origin-left">
@@ -39,18 +39,18 @@ const PracticeAreas: React.FC = () => {
               <p className="text-slate-500 group-hover:text-white/70 leading-relaxed mb-10 transition-colors text-sm font-light">
                 {area.description}
               </p>
-              <a 
-                href="#/practice" 
+              <a
+                href="#/practice"
                 className="text-[10px] font-bold text-[#1a2b23] group-hover:text-[#d4af37] flex items-center uppercase tracking-[0.3em] transition-colors"
               >
                 Learn more <span className="ml-3 group-hover:translate-x-2 transition-transform">→</span>
               </a>
-              
+
               {/* Gold accent line on hover */}
               <div className="absolute top-0 left-0 w-full h-1 bg-[#d4af37] scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
             </div>
           ))}
-          
+
           {/* Custom CTA card to fill the grid if odd number */}
           {PRACTICE_AREAS.length % 3 !== 0 && (
             <div className="p-12 border-r border-b border-slate-100 bg-[#d4af37] flex flex-col justify-center items-center text-center">

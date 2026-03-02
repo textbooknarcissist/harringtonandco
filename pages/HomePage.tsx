@@ -1,12 +1,12 @@
 import React from 'react';
-import Hero from '../components/Hero';
-import AboutSection from '../components/AboutSection';
-import Testimonials from '../components/Testimonials';
-import ContactSection from '../components/ContactSection';
-import PracticePreview from '../components/PracticePreview';
-import BlogPreview from '../components/BlogPreview';
-import EnterpriseTicker from '../components/EnterpriseTicker';
-import FAQ from '../components/FAQ';
+import Hero from '../components/features/Hero';
+import AboutSection from '../components/features/AboutSection';
+import Testimonials from '../components/features/Testimonials';
+import ContactSection from '../components/features/ContactSection';
+import PracticePreview from '../components/features/PracticePreview';
+import BlogPreview from '../components/features/BlogPreview';
+import EnterpriseTicker from '../components/features/EnterpriseTicker';
+import FAQ from '../components/features/FAQ';
 
 const HomePage: React.FC = () => {
   return (

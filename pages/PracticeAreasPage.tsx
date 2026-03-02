@@ -1,4 +1,6 @@
 import React from 'react';
+import Hero from '../components/features/Hero';
+import TrackRecord from '../components/features/TrackRecord';
 import { Globe, ShieldAlert, Cpu, Landmark, Ship, Briefcase, ArrowRight, Linkedin, Twitter, Instagram } from 'lucide-react';
 import { LAWYERS } from '../constants';
 
@@ -53,11 +55,11 @@ const PracticeAreasPage: React.FC = () => {
       {/* Refined Hero Header */}
       <section className="relative min-h-screen w-full overflow-hidden flex flex-col items-center justify-center text-center px-6">
         <div className="absolute inset-0 z-0">
-          <img 
-  src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2000&auto=webp" 
-  alt="Corporate Landscape" 
-  className="w-full h-full object-cover object-center grayscale brightness-[0.3] scale-105"
-/>
+          <img
+            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2000&auto=webp"
+            alt="Corporate Landscape"
+            className="w-full h-full object-cover object-center grayscale brightness-[0.3] scale-105"
+          />
           <div className="absolute inset-0 bg-[#0F1E2E]/60 backdrop-blur-[2px]"></div>
         </div>
 
@@ -66,21 +68,21 @@ const PracticeAreasPage: React.FC = () => {
             <span className="text-[#C6A75E] font-bold tracking-[0.6em] uppercase text-[10px] md:text-xs mb-4 animate-in fade-in slide-in-from-top-4 duration-1000">
               Our Specialized Capabilities
             </span>
-            <div className="w-12 h-[1px] bg-[#C6A75E]/40"></div>
+            <div className="w-12 h-px bg-[#C6A75E]/40"></div>
           </div>
-          
+
           <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-[#F7F5F0] mb-8 serif leading-[1.1] animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-150">
             Practice Areas.
           </h1>
-          
+
           <p className="max-w-2xl text-sm md:text-base text-[#F7F5F0]/70 font-light leading-relaxed mx-auto animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-500">
             We provide a spectrum of elite legal services designed to address the multifaceted challenges of modern global commerce and private interests.
           </p>
         </div>
-        
+
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 opacity-30">
           <span className="text-[8px] uppercase tracking-[0.5em] text-[#F7F5F0] font-bold">Explore Expertise</span>
-          <div className="w-[1px] h-12 bg-gradient-to-b from-[#C6A75E] to-transparent"></div>
+          <div className="w-px h-12 bg-linear-to-b from-[#C6A75E] to-transparent"></div>
         </div>
       </section>
 
@@ -89,19 +91,19 @@ const PracticeAreasPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {sophisticatedPractices.map((area) => (
-              <div 
-                key={area.id} 
+              <div
+                key={area.id}
                 className="group relative flex flex-col h-full bg-white p-12 border border-[#0F1E2E]/10 hover:border-[#C6A75E]/30 hover:shadow-[0_20px_50px_rgba(15,30,46,0.08)] transition-all duration-500 ease-out rounded-sm"
               >
                 <div className="absolute top-8 right-10 text-5xl font-bold text-slate-50 opacity-0 group-hover:opacity-100 transition-opacity duration-700 serif pointer-events-none select-none">
                   {area.id}
                 </div>
-                
+
                 <div className="mb-10 text-[#C6A75E] transition-transform duration-500 group-hover:scale-110 origin-left">
                   {area.icon}
                 </div>
 
-                <div className="flex-grow">
+                <div className="grow">
                   <h3 className="text-2xl font-bold text-[#0F1E2E] mb-1 serif leading-tight">
                     {area.title}
                   </h3>
@@ -114,8 +116,8 @@ const PracticeAreasPage: React.FC = () => {
                 </div>
 
                 <div className="mt-10 pt-8 border-t border-slate-50">
-                  <a 
-                    href="#/contact" 
+                  <a
+                    href="#/contact"
                     className="inline-flex items-center text-[10px] font-bold text-[#0F1E2E] uppercase tracking-[0.3em] group/btn transition-colors hover:text-[#C6A75E]"
                   >
                     Engage Practice Lead
@@ -135,33 +137,33 @@ const PracticeAreasPage: React.FC = () => {
             <div className="order-2 lg:order-1 relative">
               <div className="absolute -top-6 -left-6 w-32 h-32 border-l border-t border-[#C6A75E]/30"></div>
               <div className="relative overflow-hidden shadow-2xl">
-                <img 
-  src="https://images.pexels.com/photos/3183172/pexels-photo-3183172.jpeg?auto=compress&cs=tinysrgb&w=1200" 
-  alt="Elite Advocacy detail" 
-  className="w-full h-[550px] object-cover grayscale brightness-75 hover:scale-105 transition-transform duration-1000"
-/>
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0F1E2E] via-transparent to-transparent opacity-60"></div>
+                <img
+                  src="https://images.pexels.com/photos/3183172/pexels-photo-3183172.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                  alt="Elite Advocacy detail"
+                  className="w-full h-[550px] object-cover grayscale brightness-75 hover:scale-105 transition-transform duration-1000"
+                />
+                <div className="absolute inset-0 bg-linear-to-t from-[#0F1E2E] via-transparent to-transparent opacity-60"></div>
               </div>
               <div className="absolute -bottom-6 -right-6 w-32 h-32 border-r border-b border-[#C6A75E]/30"></div>
             </div>
-            
+
             <div className="order-1 lg:order-2 space-y-12">
               <div>
                 <span className="text-[#C6A75E] font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Execution Strategy</span>
                 <h2 className="text-4xl md:text-5xl text-[#F7F5F0] font-bold serif leading-tight">Multidisciplinary Counsel for Complex Markets</h2>
               </div>
-              
+
               <p className="text-[#F7F5F0]/60 text-lg font-light leading-relaxed">
                 Our practice is built on the reality that legal challenges do not exist in isolation. We provide holistic, 360-degree advocacy that considers business risk, brand reputation, and future-proof regulatory compliance.
               </p>
-              
+
               <div className="space-y-8">
                 <div className="flex flex-col gap-2">
                   <div className="flex justify-between items-end">
                     <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#C6A75E]">Global Regulatory Mapping</span>
                     <span className="text-xs text-[#F7F5F0]/40 font-light">24+ Jurisdictions</span>
                   </div>
-                  <div className="w-full h-[1px] bg-white/10">
+                  <div className="w-full h-px bg-white/10">
                     <div className="h-full bg-[#C6A75E] transition-all duration-1000 w-[75%]"></div>
                   </div>
                 </div>
@@ -170,7 +172,7 @@ const PracticeAreasPage: React.FC = () => {
                     <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#C6A75E]">Risk Mitigation Protocols</span>
                     <span className="text-xs text-[#F7F5F0]/40 font-light">Predictive Analysis</span>
                   </div>
-                  <div className="w-full h-[1px] bg-white/10">
+                  <div className="w-full h-px bg-white/10">
                     <div className="h-full bg-[#C6A75E] transition-all duration-1000 w-[90%]"></div>
                   </div>
                 </div>
@@ -179,7 +181,7 @@ const PracticeAreasPage: React.FC = () => {
                     <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#C6A75E]">Executive Level Advisory</span>
                     <span className="text-xs text-[#F7F5F0]/40 font-light">Boardroom Direct</span>
                   </div>
-                  <div className="w-full h-[1px] bg-white/10">
+                  <div className="w-full h-px bg-white/10">
                     <div className="h-full bg-[#C6A75E] transition-all duration-1000 w-[60%]"></div>
                   </div>
                 </div>
@@ -205,10 +207,10 @@ const PracticeAreasPage: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {LAWYERS.map((lawyer) => (
               <div key={lawyer.id} className="group">
-                <div className="relative overflow-hidden mb-8 aspect-[4/5] bg-slate-100 shadow-2xl transition-all duration-700 border border-[#0F1E2E]/5">
-                  <img 
-                    src={lawyer.imageUrl} 
-                    alt={lawyer.name} 
+                <div className="relative overflow-hidden mb-8 aspect-4/5 bg-slate-100 shadow-2xl transition-all duration-700 border border-[#0F1E2E]/5">
+                  <img
+                    src={lawyer.imageUrl}
+                    alt={lawyer.name}
                     className="w-full h-full object-cover transition-transform duration-1000 grayscale group-hover:grayscale-0 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-[#0F1E2E]/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center space-x-6">
@@ -236,14 +238,14 @@ const PracticeAreasPage: React.FC = () => {
             Our specialized partners are available for high-level consultations on matters of regional and international significance. Let us design the shield your ambitions require.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <a 
-              href="#/contact" 
+            <a
+              href="#/contact"
               className="w-full sm:w-auto px-12 py-5 bg-[#0F1E2E] text-white font-bold uppercase tracking-[0.2em] text-[10px] hover:bg-[#C6A75E] hover:text-[#0F1E2E] transition-all duration-300 shadow-xl"
             >
               Request Strategic Review
             </a>
-            <a 
-              href="tel:09065624016" 
+            <a
+              href="tel:09065624016"
               className="w-full sm:w-auto px-12 py-5 border border-[#0F1E2E]/20 text-[#0F1E2E] font-bold uppercase tracking-[0.2em] text-[10px] hover:border-[#0F1E2E] transition-all duration-300"
             >
               Priority Line

@@ -1,11 +1,11 @@
 
 import React from 'react';
 import { Quote } from 'lucide-react';
-import { TESTIMONIALS } from '../constants';
+import { TESTIMONIALS } from '../../constants';
 
 const AnimatedText: React.FC<{ text: string; delay: number }> = ({ text, delay }) => {
   const words = text.split(' ');
-  
+
   return (
     <p className="text-[#4A5568] leading-relaxed font-light mb-8 italic text-sm md:text-base">
       {words.map((word, i) => (
@@ -67,26 +67,26 @@ const Testimonials: React.FC = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-[#0F1E2E] serif">Verified Testimonials</h2>
           <div className="w-16 h-0.5 bg-[#C6A75E] mx-auto mt-8"></div>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {displayTestimonials.map((testimonial, idx) => (
-            <div 
+            <div
               key={testimonial.id}
               className="testimonial-card bg-white p-10 border border-[#8A6F3E]/10 rounded-sm relative group flex flex-col h-full shadow-sm"
             >
               <div className="absolute -top-4 left-10 p-2 bg-[#F7F5F0] rounded-sm">
                 <Quote className="text-[#C6A75E] w-5 h-5" fill="currentColor" />
               </div>
-              
-              <div className="flex-grow">
+
+              <div className="grow">
                 <AnimatedText text={testimonial.content} delay={0.2 + (idx * 0.3)} />
               </div>
 
               <div className="mt-auto pt-8 border-t border-[#F7F5F0] flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full border-2 border-[#C6A75E]/20 overflow-hidden flex-shrink-0 group-hover:border-[#C6A75E] transition-colors">
-                  <img 
-                    src={testimonial.imageUrl} 
-                    alt={testimonial.name} 
+                <div className="w-12 h-12 rounded-full border-2 border-[#C6A75E]/20 overflow-hidden shrink-0 group-hover:border-[#C6A75E] transition-colors">
+                  <img
+                    src={testimonial.imageUrl}
+                    alt={testimonial.name}
                     className="testimonial-image w-full h-full object-cover"
                   />
                 </div>
@@ -99,7 +99,7 @@ const Testimonials: React.FC = () => {
               </div>
 
               {/* Decorative accent for the card */}
-              <div className="absolute bottom-0 right-0 w-12 h-12 bg-gradient-to-br from-transparent to-[#C6A75E]/5 pointer-events-none"></div>
+              <div className="absolute bottom-0 right-0 w-12 h-12 bg-linear-to-br from-transparent to-[#C6A75E]/5 pointer-events-none"></div>
             </div>
           ))}
         </div>

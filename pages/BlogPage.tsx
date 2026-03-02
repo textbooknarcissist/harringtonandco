@@ -1,7 +1,9 @@
 
 import React from 'react';
 import { BLOG_POSTS } from '../constants';
-import Logo from '../components/Logo';
+import Logo from '../components/ui/Logo';
+import BlogPreview from '../components/features/BlogPreview';
+import Newsletter from '../components/layout/Newsletter';
 
 const BlogPage: React.FC = () => {
   return (
@@ -10,8 +12,8 @@ const BlogPage: React.FC = () => {
       <section className="relative pt-48 pb-32 overflow-hidden flex items-center justify-center text-center px-6">
         {/* Background Image with Desaturated Overlay */}
         <div className="absolute inset-0 z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&q=80&w=2000" 
+          <img
+            src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&q=80&w=2000"
             alt="Briefing Background"
             className="w-full h-full object-cover object-center grayscale brightness-[0.3] scale-105"
           />
@@ -25,7 +27,7 @@ const BlogPage: React.FC = () => {
           <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-[#F7F5F0] mb-8 serif leading-[1.05] animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-150">
             Resources.
           </h1>
-          <div className="w-24 h-[1px] bg-[#C6A75E] mb-8 mx-auto animate-in fade-in zoom-in duration-1000 delay-300"></div>
+          <div className="w-24 h-px bg-[#C6A75E] mb-8 mx-auto animate-in fade-in zoom-in duration-1000 delay-300"></div>
           <p className="max-w-2xl text-sm md:text-lg text-[#F7F5F0]/70 font-light leading-relaxed mx-auto animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-500">
             Strategic commentary on evolving regulations and the global commercial landscape.
           </p>
@@ -36,11 +38,11 @@ const BlogPage: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-16">
           {BLOG_POSTS.map((post) => (
             <article key={post.id} className="flex flex-col group">
-              <div className="overflow-hidden mb-8 aspect-[16/9] bg-slate-200">
-                <img 
-                  src={post.imageUrl} 
-                  alt={post.title} 
-                  className="w-full h-full object-cover grayscale brightness-90 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" 
+              <div className="overflow-hidden mb-8 aspect-video bg-slate-200">
+                <img
+                  src={post.imageUrl}
+                  alt={post.title}
+                  className="w-full h-full object-cover grayscale brightness-90 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
                 />
               </div>
               <div>
@@ -56,7 +58,7 @@ const BlogPage: React.FC = () => {
                 <div className="flex items-center justify-between pt-8 border-t border-slate-200">
                   <div className="flex items-center">
                     <div className="w-10 h-10 bg-slate-100 rounded-full mr-4 flex items-center justify-center border border-slate-200 overflow-hidden">
-                       <Logo className="w-6 h-6 opacity-40" />
+                      <Logo className="w-6 h-6 opacity-40" />
                     </div>
                     <div>
                       <div className="text-sm font-bold text-[#0F1E2E] uppercase tracking-widest">{post.author}</div>
@@ -71,7 +73,7 @@ const BlogPage: React.FC = () => {
             </article>
           ))}
         </div>
-        
+
         <div className="flex justify-center mt-20">
           <button className="px-12 py-5 bg-[#0F1E2E] text-[#F7F5F0] font-bold uppercase tracking-[0.3em] text-[10px] hover:bg-[#C6A75E] hover:text-[#0F1E2E] transition-all duration-300 shadow-xl">
             Archive Access

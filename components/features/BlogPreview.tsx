@@ -1,5 +1,5 @@
 import React from 'react';
-import { BLOG_POSTS } from '../constants';
+import { BLOG_POSTS } from '../../constants';
 import { ArrowUpRight } from 'lucide-react';
 
 const BlogPreview: React.FC = () => {
@@ -40,10 +40,10 @@ const BlogPreview: React.FC = () => {
                     {featuredPost.title}
                     <ArrowUpRight size={20} className="shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </h3>
-                  <p className="text-[#F7F5F0]/40 font-light text-base leading-relaxed">
+                  <p className="text-[#4A5568] font-light text-base leading-relaxed">
                     {featuredPost.excerpt}
                   </p>
-                  <div className="flex items-center text-[10px] text-white/20 pt-4 tracking-widest uppercase font-bold">
+                  <div className="flex items-center text-[10px] text-white/40 pt-4 tracking-widest uppercase font-bold">
                     <span>{featuredPost.author}</span>
                     <span className="mx-3 opacity-30">•</span>
                     <span>{featuredPost.date}</span>

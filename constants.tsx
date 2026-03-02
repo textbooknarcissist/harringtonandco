@@ -1,4 +1,4 @@
-import { PracticeArea, Testimonial, BlogPost } from './types';
+import { PracticeArea, Testimonial, BlogPost, Attorney, NavLink, FAQItem } from './types';
 
 export const NAV_LINKS = [
   { name: 'Home', href: '#/' },

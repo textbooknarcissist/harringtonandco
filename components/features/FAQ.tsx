@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo, memo } from 'react';
 import { ChevronDown, HelpCircle, ArrowRight } from 'lucide-react';
-import { FAQ_ITEMS } from '../constants';
+import { FAQ_ITEMS } from '../../constants';
 
 interface FAQProps {
   limit?: number;
@@ -8,8 +8,10 @@ interface FAQProps {
 
 const FAQ: React.FC<FAQProps> = ({ limit }) => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
-  
-  const displayFaqs = limit ? FAQ_ITEMS.slice(0, limit) : FAQ_ITEMS;
+
+  const displayFaqs = useMemo(() =>
+    limit ? FAQ_ITEMS.slice(0, limit) : FAQ_ITEMS,
+    [limit]);
 
   return (
     <section className={`py-24 ${limit ? 'bg-[#F7F5F0]' : 'bg-transparent'} relative z-10`}>
@@ -31,20 +33,25 @@ const FAQ: React.FC<FAQProps> = ({ limit }) => {
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : idx)}
                   className="w-full py-6 flex items-center justify-between text-left group focus:outline-none"
+                  aria-expanded={isOpen}
+                  aria-controls={`faq-answer-${idx}`}
                 >
                   <div className="flex items-center gap-6">
                     <span className="flex items-center justify-center w-8 h-8 rounded-full border border-[#0F1E2E]/20 text-[#0F1E2E] text-xs font-bold group-hover:bg-[#0F1E2E] group-hover:text-white transition-all">
                       {idx + 1}
                     </span>
-                    <span className={`text-base md:text-lg font-bold transition-colors ${isOpen ? 'text-[#C6A75E]' : 'text-[#0F1E2E]'}`}>
+                    <span id={`faq-question-${idx}`} className={`text-base md:text-lg font-bold transition-colors ${isOpen ? 'text-[#C6A75E]' : 'text-[#0F1E2E]'}`}>
                       {faq.question}
                     </span>
                   </div>
-                  <ChevronDown 
-                    className={`w-5 h-5 text-[#0F1E2E]/40 transition-transform duration-300 ${isOpen ? 'rotate-180 text-[#C6A75E]' : ''}`} 
+                  <ChevronDown
+                    className={`w-5 h-5 text-[#0F1E2E]/40 transition-transform duration-300 ${isOpen ? 'rotate-180 text-[#C6A75E]' : ''}`}
                   />
                 </button>
-                <div 
+                <div
+                  id={`faq-answer-${idx}`}
+                  role="region"
+                  aria-labelledby={`faq-question-${idx}`}
                   className={`transition-all duration-500 ease-in-out overflow-hidden ${isOpen ? 'max-h-96 pb-8' : 'max-h-0'}`}
                 >
                   <div className="pl-14 text-slate-500 font-light leading-relaxed text-sm md:text-base pr-4">
@@ -58,8 +65,8 @@ const FAQ: React.FC<FAQProps> = ({ limit }) => {
 
         {limit && (
           <div className="mt-12 text-center">
-            <a 
-              href="#/contact" 
+            <a
+              href="#/contact"
               className="inline-flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em] text-[#0F1E2E] hover:text-[#C6A75E] transition-colors group"
             >
               view all faqs
@@ -72,4 +79,4 @@ const FAQ: React.FC<FAQProps> = ({ limit }) => {
   );
 };
 
-export default FAQ;
+export default memo(FAQ);

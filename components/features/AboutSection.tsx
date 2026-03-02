@@ -1,4 +1,5 @@
 import React from 'react';
+import Logo from '../ui/Logo';
 
 const AboutSection: React.FC = () => {
   return (
@@ -19,7 +20,7 @@ const AboutSection: React.FC = () => {
               </div>
             </div>
           </div>
-          
+
           <div className="space-y-6 md:space-y-8 order-1 lg:order-2">
             <div>
               <span className="text-[#C6A75E] font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Our Identity</span>
@@ -31,14 +32,14 @@ const AboutSection: React.FC = () => {
               <div className="w-16 h-1 bg-[#C6A75E] mb-8"></div>
             </div>
 
-            <p className="text-[#4A5568] text-base md:text-lg leading-relaxed font-light">
+            <p className="text-[#2D3748] text-base md:text-lg leading-relaxed font-light">
               Harrington and Co is a full-service commercial law firm dedicated to excellence, serving a diverse portfolio of domestic and international clients. Our expertise spans across multiple jurisdictions and sectors.
             </p>
-            
-            <p className="text-[#4A5568] leading-relaxed text-sm md:text-base">
+
+            <p className="text-[#2D3748] leading-relaxed text-sm md:text-base">
               We leverage our profound understanding of the legal and regulatory landscape to provide tailored solutions that drive business growth and protect client assets. Our reputation is built on <span className="text-[#0F1E2E] font-bold">precision</span> and professional <span className="text-[#0F1E2E] font-bold">integrity</span>.
             </p>
-            
+
             <div className="flex flex-wrap gap-10 md:gap-12 py-4">
               <div className="text-left">
                 <div className="text-2xl md:text-3xl font-bold text-[#0F1E2E] serif">Lagos</div>
@@ -50,7 +51,7 @@ const AboutSection: React.FC = () => {
                 <div className="text-[#C6A75E] text-[10px] font-bold uppercase tracking-widest mt-1">Regional Office</div>
               </div>
             </div>
-            
+
             <div className="pt-4">
               <a
                 href="#/about"
