@@ -114,6 +114,17 @@ section {
   animation-play-state: paused;
 }
 
+.ticker-content>div {
+  filter: grayscale(100%);
+  opacity: 0.4;
+  transition: all 0.7s ease;
+}
+
+.ticker-content>div:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
 /* Loading Bar Animation */
 @keyframes loading-bar {
   0% {
