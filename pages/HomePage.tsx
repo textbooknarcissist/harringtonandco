@@ -1,5 +1,6 @@
 import React from 'react';
 import Hero from '../components/features/Hero';
+import PracticeTicker from '../components/features/PracticeTicker';
 import AboutSection from '../components/features/AboutSection';
 import Testimonials from '../components/features/Testimonials';
 import ContactSection from '../components/features/ContactSection';
@@ -12,6 +13,7 @@ const HomePage: React.FC = () => {
   return (
     <>
       <Hero />
+      <PracticeTicker />
       <AboutSection />
       <EnterpriseTicker />
       <PracticePreview />

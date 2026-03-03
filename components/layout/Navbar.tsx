@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { NAV_LINKS } from '../../constants';
 import Logo from '../ui/Logo';
 
@@ -59,9 +59,9 @@ const Navbar: React.FC<NavbarProps> = ({ currentPath = '#/' }) => {
             })}
             <a
               href="#/contact"
-              className="px-6 py-2 border border-[#C6A75E] text-[#C6A75E] text-[9px] font-bold uppercase tracking-[0.3em] hover:bg-[#C6A75E] hover:text-[#0F1E2E] transition-all duration-500 whitespace-nowrap"
+              className="hidden md:flex items-center gap-2 px-8 py-3 bg-[#C6A75E] text-[#0F1E2E] font-bold rounded-sm hover:bg-[#F7F5F0] transition-all duration-300 tracking-widest uppercase text-[10px] shadow-lg"
             >
-              Consultation
+              Hire Now <ArrowUpRight size={14} className="shrink-0" />
             </a>
           </div>
 
@@ -111,9 +111,9 @@ const Navbar: React.FC<NavbarProps> = ({ currentPath = '#/' }) => {
             <a
               href="#/contact"
               onClick={() => setIsOpen(false)}
-              className="mt-4 px-4 py-4 bg-[#C6A75E] text-[#0F1E2E] font-bold uppercase tracking-[0.2em] text-center text-[9px] hover:bg-[#F7F5F0] transition-colors rounded-lg"
+              className="mt-4 px-4 py-4 bg-[#C6A75E] text-[#0F1E2E] font-bold uppercase tracking-[0.2em] text-center text-[9px] hover:bg-[#F7F5F0] transition-colors rounded-lg flex items-center justify-center gap-2"
             >
-              Consultation
+              Hire Now <ArrowUpRight size={14} className="shrink-0" />
             </a>
           </div>
 
