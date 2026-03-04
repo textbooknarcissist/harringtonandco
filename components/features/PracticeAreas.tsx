@@ -28,24 +28,24 @@ const PracticeAreas: React.FC = () => {
           {PRACTICE_AREAS.map((area) => (
             <div
               key={area.id}
-              className="group relative overflow-hidden rounded-3xl border border-[#0F1E2E]/10 bg-white p-12 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-[#C6A75E] hover:bg-[#0F1E2E] hover:shadow-[0_24px_48px_-16px_rgba(15,30,46,0.55)]"
+              className="group relative overflow-hidden rounded-3xl border border-[#0F1E2E]/10 bg-white p-12 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-white/90 hover:bg-[#C6A75E] hover:shadow-[0_24px_48px_-16px_rgba(15,30,46,0.55)]"
             >
-              <div className="mb-8 inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#C6A75E]/15 text-[#C6A75E] transition-all duration-500 group-hover:scale-105 group-hover:bg-[#C6A75E] group-hover:text-[#0F1E2E]">
+              <div className="mb-8 inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#C6A75E]/15 text-[#C6A75E] transition-all duration-500 group-hover:scale-105 group-hover:bg-white group-hover:text-[#0F1E2E]">
                 {iconMap[area.icon] || <FileText className="w-8 h-8" />}
               </div>
-              <h3 className="mb-6 text-xl font-bold text-[#0F1E2E] serif transition-colors group-hover:text-[#F7F5F0]">
+              <h3 className="mb-6 text-xl font-bold text-[#0F1E2E] serif transition-colors group-hover:text-[#0F1E2E]">
                 {area.title}
               </h3>
-              <p className="mb-10 text-sm font-light leading-relaxed text-slate-500 transition-colors group-hover:text-[#F7F5F0]/75">
+              <p className="mb-10 text-sm font-light leading-relaxed text-slate-500 transition-colors group-hover:text-[#0F1E2E]/85">
                 {area.description}
               </p>
               <a
                 href="#/practice"
-                className="flex items-center text-[10px] font-bold uppercase tracking-[0.3em] text-[#0F1E2E] transition-colors group-hover:text-[#C6A75E]"
+                className="flex items-center text-[10px] font-bold uppercase tracking-[0.3em] text-[#0F1E2E] transition-colors group-hover:text-[#0F1E2E]"
               >
                 Learn more <span className="ml-3 transition-transform group-hover:translate-x-2">-&gt;</span>
               </a>
-              <div className="pointer-events-none absolute inset-0 rounded-3xl border border-transparent transition-colors duration-500 group-hover:border-[#C6A75E]/35"></div>
+              <div className="pointer-events-none absolute inset-0 rounded-3xl border border-transparent transition-colors duration-500 group-hover:border-white/80"></div>
             </div>
           ))}
 
