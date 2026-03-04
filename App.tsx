@@ -1,18 +1,15 @@
-import React, { useState, useEffect, Suspense, lazy } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Newsletter from './components/layout/Newsletter';
 import BackToTop from './components/ui/BackToTop';
-import LoadingBar from './components/ui/LoadingBar';
-
-// Lazy load pages
-const HomePage = lazy(() => import('./pages/HomePage'));
-const AboutPage = lazy(() => import('./pages/AboutPage'));
-const PracticeAreasPage = lazy(() => import('./pages/PracticeAreasPage'));
-const BlogPage = lazy(() => import('./pages/BlogPage'));
-const ContactPage = lazy(() => import('./pages/ContactPage'));
-const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage'));
-const TermsPage = lazy(() => import('./pages/TermsPage'));
+import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
+import PracticeAreasPage from './pages/PracticeAreasPage';
+import BlogPage from './pages/BlogPage';
+import ContactPage from './pages/ContactPage';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import TermsPage from './pages/TermsPage';
 
 const App: React.FC = () => {
   const [currentPath, setCurrentPath] = useState(window.location.hash || '#/');
@@ -52,11 +49,9 @@ const App: React.FC = () => {
     <div className="flex flex-col min-h-screen bg-[#F7F5F0]">
       <Navbar currentPath={currentPath} />
       <main className="grow">
-        <Suspense fallback={<LoadingBar />}>
-          <div key={currentPath} className="animate-in fade-in duration-700">
-            {renderPage()}
-          </div>
-        </Suspense>
+        <div key={currentPath} className="animate-in fade-in duration-700">
+          {renderPage()}
+        </div>
       </main>
       <Newsletter />
       <Footer />
