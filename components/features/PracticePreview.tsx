@@ -31,12 +31,16 @@ const PracticePreview: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-16">
           {previewAreas.map((area, idx) => (
-            <div key={idx} className="p-10 border border-[#0F1E2E]/15 bg-white hover:border-[#C6A75E]/50 transition-all duration-500 group shadow-sm hover:shadow-xl">
-              <div className="mb-8 text-[#C6A75E] group-hover:scale-110 transition-transform duration-500 origin-left">
+            <div
+              key={idx}
+              className="group relative overflow-hidden rounded-3xl border border-[#0F1E2E]/10 bg-white p-10 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-[#C6A75E] hover:bg-[#0F1E2E] hover:shadow-[0_24px_48px_-16px_rgba(15,30,46,0.55)]"
+            >
+              <div className="mb-8 inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#C6A75E]/15 text-[#C6A75E] transition-all duration-500 group-hover:scale-105 group-hover:bg-[#C6A75E] group-hover:text-[#0F1E2E]">
                 {area.icon}
               </div>
-              <h3 className="text-2xl font-bold text-[#0F1E2E] mb-4 serif transition-colors group-hover:text-[#C6A75E]">{area.title}</h3>
-              <p className="text-[#2D3748] leading-relaxed font-light text-sm">{area.desc}</p>
+              <h3 className="mb-4 text-2xl font-bold text-[#0F1E2E] serif transition-colors group-hover:text-[#F7F5F0]">{area.title}</h3>
+              <p className="text-sm font-light leading-relaxed text-[#2D3748] transition-colors group-hover:text-[#F7F5F0]/75">{area.desc}</p>
+              <div className="pointer-events-none absolute inset-0 rounded-3xl border border-transparent transition-colors duration-500 group-hover:border-[#C6A75E]/35"></div>
             </div>
           ))}
         </div>
