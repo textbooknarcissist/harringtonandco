@@ -79,12 +79,16 @@ section {
 }
 
 ::-webkit-scrollbar-track {
-  background: #F7F5F0;
+  background: #0F1E2E;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #0F1E2E;
+  background: #C6A75E;
   border-radius: 0px;
+}
+
+html {
+  scrollbar-color: #C6A75E #0F1E2E;
 }
 
 /* Selection highlight */
