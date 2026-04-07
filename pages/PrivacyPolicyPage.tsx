@@ -2,7 +2,7 @@ import React from 'react';
 
 const PrivacyPolicyPage: React.FC = () => {
   return (
-    <div className="bg-[#F7F5F0] pt-32 pb-24 min-h-screen">
+    <div className="bg-[#F7F5F0] pt-32 pb-24 min-h-screen" id="main-content">
       <div className="max-w-4xl mx-auto px-6">
         <div className="mb-16 border-b border-[#0F1E2E]/10 pb-8">
           <span className="text-[#C6A75E] font-bold tracking-[0.5em] uppercase text-xs mb-4 block">Compliance</span>

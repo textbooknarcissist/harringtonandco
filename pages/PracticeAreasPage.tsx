@@ -1,8 +1,19 @@
-import React from 'react';
-import Hero from '../components/features/Hero';
-import TrackRecord from '../components/features/TrackRecord';
-import { Globe, ShieldAlert, Cpu, Landmark, Ship, Briefcase, ArrowRight, Linkedin, Twitter, Instagram } from 'lucide-react';
-import { LAWYERS } from '../constants';
+import React, { useCallback } from 'react';
+import {
+  Globe,
+  ShieldAlert,
+  Cpu,
+  Landmark,
+  Ship,
+  Briefcase,
+  ArrowRight,
+  Linkedin,
+  Twitter,
+  Instagram,
+} from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { useContent } from '../hooks/useContent';
+import { contentService } from '../services/contentService';
 
 const sophisticatedPractices = [
   {
@@ -46,24 +57,28 @@ const sophisticatedPractices = [
     subtitle: 'Cross-Border Regulatory Compliance',
     desc: 'Providing seamless legal navigation across multiple jurisdictions, ensuring full compliance within a globalized regulatory field.',
     icon: <Globe className="w-10 h-10" />,
-  }
+  },
 ];
 
 const PracticeAreasPage: React.FC = () => {
+  const fetchAttorneys = useCallback(() => contentService.getAttorneys(), []);
+  const { data: attorneys, loading: attorneysLoading, error: attorneysError, refetch } = useContent(fetchAttorneys);
+  const hasAttorneys = (attorneys?.length ?? 0) > 0;
+
   return (
     <div className="bg-[#F7F5F0]">
       {/* Refined Hero Header */}
-      <section className="relative min-h-screen w-full overflow-hidden flex flex-col items-center justify-center text-center px-6">
+      <section className="relative min-h-[60vh] w-full overflow-hidden flex flex-col items-center justify-center text-center px-6">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2000&auto=webp"
+            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2000"
             alt="Corporate Landscape"
             className="w-full h-full object-cover object-center grayscale brightness-[0.3] scale-105"
           />
           <div className="absolute inset-0 bg-[#0F1E2E]/60 backdrop-blur-[2px]"></div>
         </div>
 
-        <div className="max-w-6xl mx-auto relative z-10 -mt-24">
+        <div className="max-w-6xl mx-auto relative z-10">
           <div className="flex flex-col items-center mb-8 md:mb-12">
             <span className="text-[#C6A75E] font-bold tracking-[0.6em] uppercase text-[10px] md:text-xs mb-4 animate-in fade-in slide-in-from-top-4 duration-1000">
               Our Specialized Capabilities
@@ -76,18 +91,21 @@ const PracticeAreasPage: React.FC = () => {
           </h1>
 
           <p className="max-w-2xl text-sm md:text-base text-[#F7F5F0]/70 font-light leading-relaxed mx-auto animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-500">
-            We provide a spectrum of elite legal services designed to address the multifaceted challenges of modern global commerce and private interests.
+            We provide a spectrum of elite legal services designed to address the multifaceted
+            challenges of modern global commerce and private interests.
           </p>
         </div>
 
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 opacity-30">
-          <span className="text-[8px] uppercase tracking-[0.5em] text-[#F7F5F0] font-bold">Explore Expertise</span>
+          <span className="text-[8px] uppercase tracking-[0.5em] text-[#F7F5F0] font-bold">
+            Explore Expertise
+          </span>
           <div className="w-px h-12 bg-linear-to-b from-[#C6A75E] to-transparent"></div>
         </div>
       </section>
 
       {/* Grid Section */}
-      <section className="py-32">
+      <section className="py-32" id="main-content">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {sophisticatedPractices.map((area) => (
@@ -116,13 +134,13 @@ const PracticeAreasPage: React.FC = () => {
                 </div>
 
                 <div className="mt-10 pt-8 border-t border-slate-50">
-                  <a
-                    href="#/contact"
+                  <Link
+                    to="/contact"
                     className="inline-flex items-center text-[10px] font-bold text-[#0F1E2E] uppercase tracking-[0.3em] group/btn transition-colors hover:text-[#C6A75E]"
                   >
                     Engage Practice Lead
                     <ArrowRight className="ml-3 w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-2" />
-                  </a>
+                  </Link>
                 </div>
               </div>
             ))}
@@ -149,18 +167,26 @@ const PracticeAreasPage: React.FC = () => {
 
             <div className="order-1 lg:order-2 space-y-12">
               <div>
-                <span className="text-[#C6A75E] font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Execution Strategy</span>
-                <h2 className="text-4xl md:text-5xl text-[#F7F5F0] font-bold serif leading-tight">Multidisciplinary Counsel for Complex Markets</h2>
+                <span className="text-[#C6A75E] font-bold tracking-[0.3em] uppercase text-xs mb-4 block">
+                  Execution Strategy
+                </span>
+                <h2 className="text-4xl md:text-5xl text-[#F7F5F0] font-bold serif leading-tight">
+                  Multidisciplinary Counsel for Complex Markets
+                </h2>
               </div>
 
               <p className="text-[#F7F5F0]/60 text-lg font-light leading-relaxed">
-                Our practice is built on the reality that legal challenges do not exist in isolation. We provide holistic, 360-degree advocacy that considers business risk, brand reputation, and future-proof regulatory compliance.
+                Our practice is built on the reality that legal challenges do not exist in
+                isolation. We provide holistic, 360-degree advocacy that considers business risk,
+                brand reputation, and future-proof regulatory compliance.
               </p>
 
               <div className="space-y-8">
                 <div className="flex flex-col gap-2">
                   <div className="flex justify-between items-end">
-                    <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#C6A75E]">Global Regulatory Mapping</span>
+                    <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#C6A75E]">
+                      Global Regulatory Mapping
+                    </span>
                     <span className="text-xs text-[#F7F5F0]/40 font-light">24+ Jurisdictions</span>
                   </div>
                   <div className="w-full h-px bg-white/10">
@@ -169,7 +195,9 @@ const PracticeAreasPage: React.FC = () => {
                 </div>
                 <div className="flex flex-col gap-2">
                   <div className="flex justify-between items-end">
-                    <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#C6A75E]">Risk Mitigation Protocols</span>
+                    <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#C6A75E]">
+                      Risk Mitigation Protocols
+                    </span>
                     <span className="text-xs text-[#F7F5F0]/40 font-light">Predictive Analysis</span>
                   </div>
                   <div className="w-full h-px bg-white/10">
@@ -178,7 +206,9 @@ const PracticeAreasPage: React.FC = () => {
                 </div>
                 <div className="flex flex-col gap-2">
                   <div className="flex justify-between items-end">
-                    <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#C6A75E]">Executive Level Advisory</span>
+                    <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#C6A75E]">
+                      Executive Level Advisory
+                    </span>
                     <span className="text-xs text-[#F7F5F0]/40 font-light">Boardroom Direct</span>
                   </div>
                   <div className="w-full h-px bg-white/10">
@@ -191,59 +221,114 @@ const PracticeAreasPage: React.FC = () => {
         </div>
       </section>
 
-      {/* The Counsel in Charge - NEW SECTION */}
+      {/* The Counsel in Charge */}
       <section className="py-24 bg-[#F7F5F0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
             <div className="max-w-2xl">
-              <span className="text-[#C6A75E] font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Practice Leads</span>
-              <h2 className="text-4xl md:text-5xl font-bold text-[#0F1E2E] serif leading-tight">The Strategic Counsel <br /> in Charge.</h2>
+              <span className="text-[#C6A75E] font-bold tracking-[0.3em] uppercase text-xs mb-4 block">
+                Practice Leads
+              </span>
+              <h2 className="text-4xl md:text-5xl font-bold text-[#0F1E2E] serif leading-tight">
+                The Strategic Counsel <br /> in Charge.
+              </h2>
             </div>
             <p className="text-[#4A5568] max-w-sm text-sm font-light leading-relaxed mb-1">
               Connect directly with the specialized partners who drive our practice results.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {LAWYERS.map((lawyer) => (
-              <div key={lawyer.id} className="group">
-                <div className="relative overflow-hidden mb-8 aspect-4/5 bg-slate-100 shadow-2xl transition-all duration-700 border border-[#0F1E2E]/5">
-                  <img
-                    src={lawyer.imageUrl}
-                    alt={lawyer.name}
-                    className="w-full h-full object-cover transition-transform duration-1000 grayscale group-hover:grayscale-0 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-[#0F1E2E]/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center space-x-6">
-                    <Linkedin size={20} className="text-[#F7F5F0] hover:text-[#C6A75E] cursor-pointer transition-colors" />
-                    <Twitter size={20} className="text-[#F7F5F0] hover:text-[#C6A75E] cursor-pointer transition-colors" />
-                    <Instagram size={20} className="text-[#F7F5F0] hover:text-[#C6A75E] cursor-pointer transition-colors" />
+          {attorneysLoading ? (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+              {[...Array(3)].map((_, i) => (
+                <div key={i} className="animate-pulse">
+                  <div className="aspect-4/5 bg-slate-200 mb-8 rounded-sm"></div>
+                  <div className="h-6 bg-slate-200 w-3/4 mx-auto mb-2"></div>
+                  <div className="h-4 bg-slate-200 w-1/2 mx-auto"></div>
+                </div>
+              ))}
+            </div>
+          ) : attorneysError ? (
+            <div className="text-center py-12 space-y-4">
+              <p className="text-red-500">The practice lead roster is temporarily unavailable.</p>
+              <button
+                type="button"
+                onClick={refetch}
+                className="px-6 py-3 bg-[#0F1E2E] text-[#F7F5F0] text-[10px] font-bold uppercase tracking-[0.3em] hover:bg-[#C6A75E] hover:text-[#0F1E2E] transition-colors"
+              >
+                Retry loading practice leads
+              </button>
+            </div>
+          ) : !hasAttorneys ? (
+            <div className="text-center py-12 space-y-4">
+              <p className="text-slate-500">No practice leads are available in the current demo feed.</p>
+              <button
+                type="button"
+                onClick={refetch}
+                className="px-6 py-3 bg-[#0F1E2E] text-[#F7F5F0] text-[10px] font-bold uppercase tracking-[0.3em] hover:bg-[#C6A75E] hover:text-[#0F1E2E] transition-colors"
+              >
+                Retry loading practice leads
+              </button>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+              {attorneys?.map((attorney) => (
+                <div key={attorney.id} className="group">
+                  <div className="relative overflow-hidden mb-8 aspect-4/5 bg-slate-100 shadow-2xl transition-all duration-700 border border-[#0F1E2E]/5">
+                      <img
+                        src={attorney.imageUrl}
+                        alt={attorney.name}
+                        className="w-full h-full object-cover transition-transform duration-1000 grayscale group-hover:grayscale-0 group-hover:scale-105"
+                      />
+                    <div className="absolute inset-0 bg-[#0F1E2E]/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center space-x-6">
+                      <Linkedin
+                        size={20}
+                        className="text-[#F7F5F0] hover:text-[#C6A75E] cursor-pointer transition-colors"
+                      />
+                      <Twitter
+                        size={20}
+                        className="text-[#F7F5F0] hover:text-[#C6A75E] cursor-pointer transition-colors"
+                      />
+                      <Instagram
+                        size={20}
+                        className="text-[#F7F5F0] hover:text-[#C6A75E] cursor-pointer transition-colors"
+                      />
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    <h3 className="text-2xl font-bold text-[#0F1E2E] serif mb-1">{attorney.name}</h3>
+                    <p className="text-[#C6A75E] font-bold text-[10px] uppercase tracking-[0.3em] mb-2">
+                      {attorney.role}
+                    </p>
+                    <p className="text-[#0F1E2E]/40 font-bold text-[8px] uppercase tracking-[0.4em] mb-4 italic">
+                      {attorney.expertise}
+                    </p>
+                    <div className="w-8 h-0.5 bg-slate-200 mx-auto"></div>
                   </div>
                 </div>
-                <div className="text-center">
-                  <h3 className="text-2xl font-bold text-[#0F1E2E] serif mb-1">{lawyer.name}</h3>
-                  <p className="text-[#C6A75E] font-bold text-[10px] uppercase tracking-[0.3em] mb-2">{lawyer.role}</p>
-                  <p className="text-[#0F1E2E]/40 font-bold text-[8px] uppercase tracking-[0.4em] mb-4 italic">{lawyer.expertise}</p>
-                  <div className="w-8 h-0.5 bg-slate-200 mx-auto"></div>
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
       <section className="py-32 text-center bg-white border-b border-[#0F1E2E]/5">
         <div className="max-w-3xl mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-[#0F1E2E] mb-8 serif italic">Secure Your Interests.</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-[#0F1E2E] mb-8 serif italic">
+            Secure Your Interests.
+          </h2>
           <p className="text-slate-700 mb-12 text-lg font-light leading-relaxed px-4">
-            Our specialized partners are available for high-level consultations on matters of regional and international significance. Let us design the shield your ambitions require.
+            Our specialized partners are available for high-level consultations on matters of
+            regional and international significance. Let us design the shield your ambitions
+            require.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <a
-              href="#/contact"
+            <Link
+              to="/contact"
               className="w-full sm:w-auto px-12 py-5 bg-[#0F1E2E] text-white font-bold uppercase tracking-[0.2em] text-[10px] hover:bg-[#C6A75E] hover:text-[#0F1E2E] transition-all duration-300 shadow-xl"
             >
               Request Strategic Review
-            </a>
+            </Link>
             <a
               href="tel:09065624016"
               className="w-full sm:w-auto px-12 py-5 border border-[#0F1E2E]/20 text-[#0F1E2E] font-bold uppercase tracking-[0.2em] text-[10px] hover:border-[#0F1E2E] transition-all duration-300"

@@ -9,7 +9,7 @@ import FAQ from '../components/features/FAQ';
 
 const HomePage: React.FC = () => {
   return (
-    <>
+    <div id="main-content">
       <Hero />
       <AboutSection />
       <PracticePreview />
@@ -17,7 +17,7 @@ const HomePage: React.FC = () => {
       <BlogPreview />
       <Testimonials />
       <ContactSection />
-    </>
+    </div>
   );
 };
 

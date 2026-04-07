@@ -1,11 +1,10 @@
 import React from 'react';
-import { ShieldCheck, Compass, Layers, Landmark, Instagram, Twitter, Linkedin, Target, Eye, Gem } from 'lucide-react';
+import { Target, Eye, Gem } from 'lucide-react';
 import TrackRecord from '../components/features/TrackRecord';
-import AboutSection from '../components/features/AboutSection';
 
 const AboutPage: React.FC = () => {
   return (
-    <div className="bg-[#F7F5F0]">
+    <div className="bg-[#F7F5F0]" id="main-content">
       {/* Refined Hero Header - Aligned with Homepage Style */}
       <section className="relative pt-56 pb-40 overflow-hidden flex flex-col items-center justify-center text-center px-6">
         {/* Background Image with Desaturated Overlay */}

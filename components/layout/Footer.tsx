@@ -1,17 +1,25 @@
 import React from 'react';
-import { Mail, Phone, Twitter, Instagram, Linkedin, MapPin, ArrowUpRight, Heart } from 'lucide-react';
+import { Mail, Phone, Twitter, Instagram, Linkedin, ArrowUpRight, Heart } from 'lucide-react';
+import { Link, NavLink } from 'react-router-dom';
+import { NAV_LINKS } from '../../constants';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#0F1E2E] text-[#F7F5F0] pt-12 pb-8 border-t border-white/5" aria-labelledby="footer-heading">
-      <h2 id="footer-heading" className="sr-only">Footer</h2>
+    <footer
+      className="bg-[#0F1E2E] text-[#F7F5F0] pt-12 pb-8 border-t border-white/5"
+      aria-labelledby="footer-heading"
+    >
+      <h2 id="footer-heading" className="sr-only">
+        Footer
+      </h2>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
-
           {/* Column 1: Contact */}
           <div className="space-y-6 order-last lg:order-first">
             <div>
-              <h3 className="text-sm font-bold serif mb-6 tracking-widest text-[#C6A75E] uppercase">Contact</h3>
+              <h3 className="text-sm font-bold serif mb-6 tracking-widest text-[#C6A75E] uppercase">
+                Contact
+              </h3>
               <div className="space-y-4">
                 <a
                   href="mailto:mfredebel@gmail.com"
@@ -22,8 +30,12 @@ const Footer: React.FC = () => {
                     <Mail size={14} className="text-[#C6A75E]" />
                   </div>
                   <div>
-                    <span className="block text-[10px] text-white/60 uppercase tracking-[0.2em] font-bold">Email</span>
-                    <span className="block text-xs font-light group-hover:text-[#C6A75E] transition-colors font-sans">mfredebel@gmail.com</span>
+                    <span className="block text-[10px] text-white/60 uppercase tracking-[0.2em] font-bold">
+                      Email
+                    </span>
+                    <span className="block text-xs font-light group-hover:text-[#C6A75E] transition-colors font-sans">
+                      mfredebel@gmail.com
+                    </span>
                   </div>
                 </a>
 
@@ -36,8 +48,12 @@ const Footer: React.FC = () => {
                     <Phone size={14} className="text-[#C6A75E]" />
                   </div>
                   <div>
-                    <span className="block text-[10px] text-white/60 uppercase tracking-[0.2em] font-bold">Phone</span>
-                    <span className="block text-xs font-light group-hover:text-[#C6A75E] transition-colors font-sans">09065624016</span>
+                    <span className="block text-[10px] text-white/60 uppercase tracking-[0.2em] font-bold">
+                      Phone
+                    </span>
+                    <span className="block text-xs font-light group-hover:text-[#C6A75E] transition-colors font-sans">
+                      09065624016
+                    </span>
                   </div>
                 </a>
               </div>
@@ -46,38 +62,52 @@ const Footer: React.FC = () => {
 
           {/* Column 2: Navigation */}
           <div className="lg:pl-10">
-            <h3 className="text-sm font-bold serif mb-6 tracking-widest text-[#C6A75E] uppercase">Quick Access</h3>
+            <h3 className="text-sm font-bold serif mb-6 tracking-widest text-[#C6A75E] uppercase">
+              Quick Access
+            </h3>
             <nav aria-label="Footer Quick Links">
               <ul className="space-y-3">
-                {['Home', 'About Us', 'Practice Areas', 'Resources', 'Contact'].map((item) => {
-                  const href = item === 'Home' ? '#/' : `#/${item.toLowerCase().replace(' ', '')}`;
-                  return (
-                    <li key={item}>
-                      <a href={href} className="text-xs text-[#F7F5F0]/70 hover:text-[#C6A75E] transition-all duration-300 flex items-center group font-sans">
-                        {item}
-                      </a>
-                    </li>
-                  );
-                })}
+                {NAV_LINKS.map((link) => (
+                  <li key={link.name}>
+                    <NavLink
+                      to={link.href}
+                      className={({ isActive }) =>
+                        `text-xs transition-all duration-300 flex items-center group font-sans ${
+                          isActive ? 'text-[#C6A75E]' : 'text-[#F7F5F0]/70 hover:text-[#C6A75E]'
+                        }`
+                      }
+                    >
+                      {link.name}
+                    </NavLink>
+                  </li>
+                ))}
               </ul>
             </nav>
           </div>
 
           {/* Column 3: Legal & Privacy */}
           <div className="lg:pl-5">
-            <h3 className="text-sm font-bold serif mb-6 tracking-widest text-[#C6A75E] uppercase">Compliance</h3>
+            <h3 className="text-sm font-bold serif mb-6 tracking-widest text-[#C6A75E] uppercase">
+              Compliance
+            </h3>
             <nav aria-label="Footer Compliance Links">
               <ul className="space-y-3">
                 {[
-                  { name: 'Privacy Policy', href: '#/privacy' },
-                  { name: 'Terms and Conditions', href: '#/terms' },
-                  { name: 'Client Portal', href: '#' }
+                  { name: 'Privacy Policy', href: '/privacy' },
+                  { name: 'Terms and Conditions', href: '/terms' },
+                  { name: 'Client Portal', href: '#' },
                 ].map((item) => (
                   <li key={item.name}>
-                    <a href={item.href} className="text-xs text-[#F7F5F0]/70 hover:text-[#C6A75E] transition-all duration-300 flex items-center justify-between group font-sans">
+                    <Link
+                      to={item.href}
+                      className="text-xs text-[#F7F5F0]/70 hover:text-[#C6A75E] transition-all duration-300 flex items-center justify-between group font-sans"
+                    >
                       {item.name}
-                      <ArrowUpRight size={10} className="opacity-0 group-hover:opacity-60 transition-opacity" />
-                    </a>
+                      <ArrowUpRight
+                        size={10}
+                        className="opacity-0 group-hover:opacity-60 transition-opacity"
+                      />
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -86,12 +116,14 @@ const Footer: React.FC = () => {
 
           {/* Column 4: Engagement */}
           <div>
-            <h3 className="text-sm font-bold serif mb-6 tracking-widest text-[#C6A75E] uppercase">Connect</h3>
+            <h3 className="text-sm font-bold serif mb-6 tracking-widest text-[#C6A75E] uppercase">
+              Connect
+            </h3>
             <div className="flex gap-3">
               {[
                 { icon: Twitter, href: '#', label: 'Twitter' },
                 { icon: Linkedin, href: '#', label: 'LinkedIn' },
-                { icon: Instagram, href: '#', label: 'Instagram' }
+                { icon: Instagram, href: '#', label: 'Instagram' },
               ].map((social, i) => (
                 <a
                   key={i}

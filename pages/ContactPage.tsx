@@ -1,10 +1,9 @@
-import React from 'react';
 import ContactSection from '../components/features/ContactSection';
 import FAQ from '../components/features/FAQ';
 
 const ContactPage: React.FC = () => {
   return (
-    <div className="bg-[#F7F5F0]">
+    <div className="bg-[#F7F5F0]" id="main-content">
       {/* Immersive Full-Height Hero Header */}
       <section className="relative min-h-screen w-full overflow-hidden flex flex-col items-center justify-center text-center px-6">
         {/* Background Image with Desaturated Overlay */}

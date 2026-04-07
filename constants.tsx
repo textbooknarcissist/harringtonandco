@@ -1,23 +1,14 @@
 import { PracticeArea, Testimonial, BlogPost, Attorney, NavLink, FAQItem } from './types';
 
-export const NAV_LINKS = [
-  { name: 'Home', href: '#/' },
-  { name: 'About Us', href: '#/about' },
-  { name: 'Practice Areas', href: '#/practice' },
-  { name: 'Resources', href: '#/blog' },
-  { name: 'Contact', href: '#/contact' },
+export const NAV_LINKS: NavLink[] = [
+  { name: 'Home', href: '/' },
+  { name: 'About Us', href: '/about' },
+  { name: 'Practice Areas', href: '/practice' },
+  { name: 'Resources', href: '/blog' },
+  { name: 'Contact', href: '/contact' },
 ];
 
-export interface Lawyer {
-  id: string;
-  name: string;
-  role: string;
-  expertise: string;
-  phone: string;
-  imageUrl: string;
-}
-
-export const LAWYERS: Lawyer[] = [
+export const ATTORNEYS: Attorney[] = [
   {
     id: '1',
     name: 'Oluwatoyin Adebayo',
@@ -135,7 +126,7 @@ export const BLOG_POSTS: BlogPost[] = [
   }
 ];
 
-export const FAQ_ITEMS = [
+export const FAQ_ITEMS: FAQItem[] = [
   {
     question: "Does the firm handle international arbitration?",
     answer: "Yes. Our Alternative Dispute Resolution team has represented domestic and international clients in high-stakes arbitrations across London, Paris, and Dubai jurisdictions, specialized in complex commercial and maritime treaties."

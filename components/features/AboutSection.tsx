@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
-import Logo from '../ui/Logo';
+import { Link } from 'react-router-dom';
 
 const AboutSection: React.FC = () => {
   return (
@@ -13,18 +13,24 @@ const AboutSection: React.FC = () => {
               <img
                 src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=1200"
                 alt="Modern Legal Excellence"
-                className="w-full h-[400px] md:h-[600px] object-cover rounded-sm shadow-[0_35px_60px_-15px_rgba(15,30,46,0.2)] transition-all duration-1000"
+                className="w-full h-100 md:h-150 object-cover rounded-sm shadow-[0_35px_60px_-15px_rgba(15,30,46,0.2)] transition-all duration-1000"
               />
               <div className="absolute -bottom-4 -right-4 md:-bottom-6 md:-right-6 p-4 md:p-10 bg-[#0F1E2E] border-l-4 border-[#C6A75E] shadow-2xl z-20">
-                <p className="text-[#F7F5F0] text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold serif italic mb-1 md:mb-2 leading-tight">Tim Harrington</p>
-                <p className="text-[#C6A75E] text-[10px] md:text-xs font-bold uppercase tracking-widest">-CEO of the company</p>
+                <p className="text-[#F7F5F0] text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold serif italic mb-1 md:mb-2 leading-tight">
+                  Tim Harrington
+                </p>
+                <p className="text-[#C6A75E] text-[10px] md:text-xs font-bold uppercase tracking-widest">
+                  -CEO of the company
+                </p>
               </div>
             </div>
           </div>
 
           <div className="space-y-6 md:space-y-8 order-1 lg:order-2">
             <div>
-              <span className="text-[#C6A75E] font-bold tracking-[0.3em] uppercase text-xs mb-4 block">About Us</span>
+              <span className="text-[#C6A75E] font-bold tracking-[0.3em] uppercase text-xs mb-4 block">
+                About Us
+              </span>
               <h2 className="text-3xl md:text-5xl font-bold text-[#0F1E2E] mb-6 md:mb-8 serif leading-tight">
                 Where Strategy Meets Advocacy.
               </h2>
@@ -32,32 +38,42 @@ const AboutSection: React.FC = () => {
             </div>
 
             <p className="text-[#2D3748] text-base md:text-lg leading-relaxed font-light">
-              At Harrington & Co, we provide sophisticated legal counsel tailored to ambitious businesses and discerning clients. Our firm delivers comprehensive commercial law services grounded in integrity, discretion, and measurable results.
+              At Harrington & Co, we provide sophisticated legal counsel tailored to ambitious
+              businesses and discerning clients. Our firm delivers comprehensive commercial law
+              services grounded in integrity, discretion, and measurable results.
             </p>
 
             <p className="text-[#2D3748] leading-relaxed text-sm md:text-base">
-              With extensive cross-border experience, we help clients navigate regulatory complexity, structure growth, and protect what matters most. Every engagement is approached with <span className="text-[#0F1E2E] font-bold">clarity,</span> <span className="text-[#0F1E2E] font-bold">precision,</span> and unwavering <span className="text-[#0F1E2E] font-bold">professionalism.</span>
+              With extensive cross-border experience, we help clients navigate regulatory
+              complexity, structure growth, and protect what matters most. Every engagement is
+              approached with <span className="text-[#0F1E2E] font-bold">clarity,</span>{' '}
+              <span className="text-[#0F1E2E] font-bold">precision,</span> and unwavering{' '}
+              <span className="text-[#0F1E2E] font-bold">professionalism.</span>
             </p>
 
             <div className="flex flex-wrap gap-10 md:gap-12 py-4">
               <div className="text-left">
                 <div className="text-2xl md:text-3xl font-bold text-[#0F1E2E] serif">Lagos</div>
-                <div className="text-[#C6A75E] text-[10px] font-bold uppercase tracking-widest mt-1">Headquarters</div>
+                <div className="text-[#C6A75E] text-[10px] font-bold uppercase tracking-widest mt-1">
+                  Headquarters
+                </div>
               </div>
               <div className="hidden sm:block h-10 w-px bg-slate-200"></div>
               <div className="text-left">
                 <div className="text-2xl md:text-3xl font-bold text-[#0F1E2E] serif">Abuja</div>
-                <div className="text-[#C6A75E] text-[10px] font-bold uppercase tracking-widest mt-1">Regional Office</div>
+                <div className="text-[#C6A75E] text-[10px] font-bold uppercase tracking-widest mt-1">
+                  Regional Office
+                </div>
               </div>
             </div>
 
             <div className="pt-4">
-              <a
-                href="#/about"
+              <Link
+                to="/about"
                 className="flex items-center gap-3 w-fit px-10 py-5 bg-[#0F1E2E] text-[#F7F5F0] font-bold rounded-sm hover:bg-[#C6A75E] hover:text-[#0F1E2E] transition-all duration-300 tracking-[0.2em] uppercase text-xs shadow-xl whitespace-nowrap"
               >
                 Discover Our Story <ArrowUpRight size={18} className="shrink-0" />
-              </a>
+              </Link>
             </div>
           </div>
         </div>

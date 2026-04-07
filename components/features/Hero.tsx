@@ -1,6 +1,6 @@
-import React, { memo } from 'react';
+import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const Hero: React.FC = () => {
   return (
@@ -27,13 +27,13 @@ const Hero: React.FC = () => {
           Harrington and Co provides bespoke legal advisory and representation, focused on delivering measurable results in complex commercial environments.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-in fade-in slide-in-from-bottom-12 duration-1000 delay-500">
-          <a
-            href="#/contact"
+          <Link
+            to="/contact"
             className="px-10 py-5 bg-[#C6A75E] text-[#0F1E2E] font-bold rounded-sm hover:bg-[#F7F5F0] transition-all duration-300 tracking-[0.2em] uppercase text-xs shadow-2xl flex items-center gap-3 w-fit mx-auto md:mx-0"
             aria-label="Schedule a consultation with Harrington and Co"
           >
             Hire Now <ArrowUpRight size={18} className="shrink-0" />
-          </a>
+          </Link>
         </div>
       </div>
     </section>

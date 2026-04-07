@@ -36,7 +36,16 @@ const CountUp: React.FC<{ end: number; suffix?: string; prefix?: string }> = ({ 
 
 // --- NEW: Individual Stat Card Component ---
 // This isolates the hover state so only the specific card responds
-const StatCard = ({ stat }: { stat: any }) => {
+interface StatData {
+  label: string;
+  value: number;
+  suffix?: string;
+  description: string;
+  icon: React.ReactNode;
+  dark: boolean;
+}
+
+const StatCard = ({ stat }: { stat: StatData }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
