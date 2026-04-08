@@ -6,18 +6,18 @@ const AboutPage: React.FC = () => {
   return (
     <div className="bg-[#F7F5F0]" id="main-content">
       {/* Refined Hero Header - Aligned with Homepage Style */}
-      <section className="relative pt-56 pb-40 overflow-hidden flex flex-col items-center justify-center text-center px-6">
+      <section className="relative min-h-screen overflow-hidden flex flex-col items-center justify-center text-center px-6">
         {/* Background Image with Desaturated Overlay */}
         <div className="absolute inset-0 z-0">
           <img
             src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&q=80&w=2000"
             alt="Library Architecture"
-            className="w-full h-full object-cover object-center grayscale brightness-[0.3] scale-105"
+            className="w-full h-full object-cover object-center grayscale brightness-[0.3] scale-105 keep-grayscale"
           />
           <div className="absolute inset-0 bg-[#0F1E2E]/60 backdrop-blur-[2px]"></div>
         </div>
 
-        <div className="max-w-6xl mx-auto relative z-10 -mt-24">
+        <div className="max-w-6xl mx-auto relative z-10">
           <div className="flex flex-col items-center mb-8 md:mb-12">
             <span className="text-[#C6A75E] font-bold tracking-[0.6em] uppercase text-[10px] md:text-xs mb-4 animate-in fade-in slide-in-from-top-4 duration-1000">
               Our Heritage
@@ -50,7 +50,7 @@ const AboutPage: React.FC = () => {
               <img
                 src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=1200"
                 alt="Architectural Detail"
-                className="w-full h-[600px] object-cover grayscale brightness-75 hover:grayscale-0 transition-all duration-1000"
+                className="w-full h-[600px] object-cover grayscale brightness-75 hover:grayscale-0 transition-all duration-1000 keep-grayscale"
               />
               <div className="absolute bottom-10 left-10 right-10 p-8 bg-[#0F1E2E]/90 backdrop-blur-md border-l-4 border-[#C6A75E]">
                 <h3 className="text-[#F7F5F0] text-2xl font-bold serif mb-2 italic">"Vision is the foundation of every triumph."</h3>
@@ -137,7 +137,7 @@ const AboutPage: React.FC = () => {
               <div className="absolute left-0 top-0 hidden md:flex items-center justify-center w-20 h-20 bg-[#0F1E2E] border border-[#C6A75E]/30 rounded-full z-20 group-hover:border-[#C6A75E] transition-colors duration-500">
                 <Gem className="text-[#C6A75E] w-8 h-8" />
               </div>
-              <div className="absolute -left-10 top-[-40px] opacity-[0.03] text-[12rem] font-serif text-[#C6A75E] pointer-events-none select-none">V</div>
+              <div className="absolute -left-10 top-[-40px] opacity-[0.03] text-[12rem] font-serif text-[#C6A75E] pointer-events-none select-none">C</div>
               <div className="max-w-4xl">
                 <h3 className="text-[#C6A75E] text-xs font-bold uppercase tracking-[0.5em] mb-4">Core Values</h3>
                 <h4 className="text-3xl md:text-4xl text-[#F7F5F0] font-bold serif mb-12">Foundational Integrity. <br /> Absolute Precision.</h4>

@@ -11,27 +11,27 @@ export const NAV_LINKS: NavLink[] = [
 export const ATTORNEYS: Attorney[] = [
   {
     id: '1',
-    name: 'Oluwatoyin Adebayo',
-    role: 'Managing Partner',
-    expertise: 'Corporate Law & Strategic M&A',
+    name: 'Julian St. John',
+    role: 'Executive Chairman & Strategic Counsel',
+    expertise: 'High-Stakes M&A & Sovereign Advisory',
     phone: '09065624016',
-    imageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400',
+    imageUrl: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800',
   },
   {
     id: '2',
-    name: 'Chukwuma Okoro',
-    role: 'Senior Partner',
-    expertise: 'Maritime Law & Global Trade',
+    name: 'Eleanor Vance',
+    role: 'Managing Partner',
+    expertise: 'International Arbitration & Corporate Governance',
     phone: '09065624016',
-    imageUrl: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400',
+    imageUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800',
   },
   {
     id: '3',
-    name: 'Amina Yusuf',
-    role: 'Partner',
-    expertise: 'Digital Sovereignty & IP',
+    name: 'Marcus Thorne',
+    role: 'Senior Partner',
+    expertise: 'Maritime Law & Global Trade Strategy',
     phone: '09065624016',
-    imageUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400',
+    imageUrl: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=800',
   }
 ];
 

@@ -16,7 +16,7 @@ const HomePage: React.FC = () => {
       <FAQ limit={1} />
       <BlogPreview />
       <Testimonials />
-      <ContactSection />
+      <ContactSection variant="blue" />
     </div>
   );
 };

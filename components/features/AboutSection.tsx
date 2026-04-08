@@ -11,16 +11,16 @@ const AboutSection: React.FC = () => {
             <div className="absolute -top-10 -left-10 w-24 md:w-40 h-24 md:h-40 bg-[#C6A75E]/5 rounded-full -z-10"></div>
             <div className="relative z-10 group">
               <img
-                src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=1200"
-                alt="Modern Legal Excellence"
+                src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=1200"
+                alt="Julian St. John - Executive Chairman"
                 className="w-full h-100 md:h-150 object-cover rounded-sm shadow-[0_35px_60px_-15px_rgba(15,30,46,0.2)] transition-all duration-1000"
               />
-              <div className="absolute -bottom-4 -right-4 md:-bottom-6 md:-right-6 p-4 md:p-10 bg-[#0F1E2E] border-l-4 border-[#C6A75E] shadow-2xl z-20">
+              <div className="absolute -bottom-4 -right-4 md:-bottom-6 md:-right-6 p-6 md:p-10 bg-white/5 backdrop-blur-lg border border-white/10 border-l-4 border-l-[#C6A75E] shadow-2xl z-20 transition-all duration-500 group-hover:scale-105 group-hover:bg-white/10">
                 <p className="text-[#F7F5F0] text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold serif italic mb-1 md:mb-2 leading-tight">
-                  Tim Harrington
+                  Julian St. John
                 </p>
                 <p className="text-[#C6A75E] text-[10px] md:text-xs font-bold uppercase tracking-widest">
-                  -CEO of the company
+                  -Executive Chairman
                 </p>
               </div>
             </div>

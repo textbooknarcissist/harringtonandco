@@ -1,48 +1,5 @@
 @import "tailwindcss";
 
-/* Playfair Display - Serif for Headings */
-@font-face {
-  font-family: 'Playfair Display';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('./assets/fonts/playfair-display-v37-latin-regular.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Playfair Display';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url('./assets/fonts/playfair-display-v37-latin-700.woff2') format('woff2');
-}
-
-/* Montserrat - Sans for Body */
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 300;
-  font-display: swap;
-  src: url('./assets/fonts/montserrat-v25-latin-300.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('./assets/fonts/montserrat-v25-latin-regular.woff2') format('woff2');
-}
-
-/* JetBrains Mono - For accent/ticker labels */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 300;
-  font-display: swap;
-  src: url('./assets/fonts/jetbrains-mono-v18-latin-300.woff2') format('woff2');
-}
-
 /* Global Styles for Harrington and Co */
 body {
   font-family: 'Montserrat', sans-serif;
@@ -170,4 +127,23 @@ section {
 a,
 button {
   transition: all 0.3s ease-in-out;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  img.grayscale:not(.keep-grayscale) {
+    filter: none !important;
+  }
+
+  .testimonial-image {
+    filter: none !important;
+  }
+
+  .ticker-content:hover {
+    animation-play-state: running;
+  }
+
+  .ticker-content > div {
+    filter: none;
+    opacity: 1;
+  }
 }

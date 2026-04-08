@@ -12,13 +12,13 @@ const BlogPage: React.FC = () => {
   return (
     <div className="bg-[#F7F5F0]">
       {/* Refined Hero Header - Unified with Homepage Style */}
-      <section className="relative pt-48 pb-32 overflow-hidden flex items-center justify-center text-center px-6">
+      <section className="relative min-h-screen overflow-hidden flex items-center justify-center text-center px-6">
         {/* Background Image with Desaturated Overlay */}
         <div className="absolute inset-0 z-0">
           <img
             src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&q=80&w=2000"
             alt="Briefing Background"
-            className="w-full h-full object-cover object-center grayscale brightness-[0.3] scale-105"
+            className="w-full h-full object-cover object-center grayscale brightness-[0.3] scale-105 keep-grayscale"
           />
           <div className="absolute inset-0 bg-[#0F1E2E]/60 backdrop-blur-[2px]"></div>
         </div>

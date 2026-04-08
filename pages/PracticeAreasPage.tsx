@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState, useEffect } from 'react';
 import {
   Globe,
   ShieldAlert,
@@ -65,15 +65,36 @@ const PracticeAreasPage: React.FC = () => {
   const { data: attorneys, loading: attorneysLoading, error: attorneysError, refetch } = useContent(fetchAttorneys);
   const hasAttorneys = (attorneys?.length ?? 0) > 0;
 
+  const [activeAttorneyId, setActiveAttorneyId] = useState<string | null>(null);
+
+  // Close active card on Escape or outside click
+  useEffect(() => {
+    const handleKeydown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setActiveAttorneyId(null);
+    };
+    const handleClickOutside = (e: MouseEvent) => {
+      if (activeAttorneyId && !(e.target as HTMLElement).closest('.attorney-card')) {
+        setActiveAttorneyId(null);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeydown);
+    window.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      window.removeEventListener('keydown', handleKeydown);
+      window.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [activeAttorneyId]);
+
   return (
     <div className="bg-[#F7F5F0]">
-      {/* Refined Hero Header */}
-      <section className="relative min-h-[60vh] w-full overflow-hidden flex flex-col items-center justify-center text-center px-6">
+      {/* Refined Hero Header - Unified Full viewport */}
+      <section className="relative min-h-screen w-full overflow-hidden flex flex-col items-center justify-center text-center px-6">
         <div className="absolute inset-0 z-0">
           <img
             src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2000"
             alt="Corporate Landscape"
-            className="w-full h-full object-cover object-center grayscale brightness-[0.3] scale-105"
+            className="w-full h-full object-cover object-center grayscale brightness-[0.3] scale-105 keep-grayscale"
           />
           <div className="absolute inset-0 bg-[#0F1E2E]/60 backdrop-blur-[2px]"></div>
         </div>
@@ -158,7 +179,7 @@ const PracticeAreasPage: React.FC = () => {
                 <img
                   src="https://images.pexels.com/photos/3183172/pexels-photo-3183172.jpeg?auto=compress&cs=tinysrgb&w=1200"
                   alt="Elite Advocacy detail"
-                  className="w-full h-[550px] object-cover grayscale brightness-75 hover:scale-105 transition-transform duration-1000"
+                  className="w-full h-[550px] object-cover grayscale brightness-75 hover:scale-105 transition-transform duration-1000 keep-grayscale"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-[#0F1E2E] via-transparent to-transparent opacity-60"></div>
               </div>
@@ -221,7 +242,7 @@ const PracticeAreasPage: React.FC = () => {
         </div>
       </section>
 
-      {/* The Counsel in Charge */}
+      {/* The Counsel in Charge - Redesigned Practice Leads */}
       <section className="py-24 bg-[#F7F5F0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
@@ -271,73 +292,65 @@ const PracticeAreasPage: React.FC = () => {
               </button>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-              {attorneys?.map((attorney) => (
-                <div key={attorney.id} className="group">
-                  <div className="relative overflow-hidden mb-8 aspect-4/5 bg-slate-100 shadow-2xl transition-all duration-700 border border-[#0F1E2E]/5">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+              {attorneys?.map((attorney) => {
+                const isExpanded = activeAttorneyId === attorney.id;
+                return (
+                  <button
+                    key={attorney.id}
+                    onClick={() => setActiveAttorneyId(isExpanded ? null : attorney.id)}
+                    className="attorney-card group relative block w-full text-left focus:outline-none transition-transform duration-500 hover:-translate-y-2"
+                    aria-expanded={isExpanded}
+                    aria-controls={`attorney-${attorney.id}-details`}
+                  >
+                    <div className="relative aspect-4/5 overflow-hidden rounded-sm shadow-2xl transition-all duration-700">
                       <img
                         src={attorney.imageUrl}
                         alt={attorney.name}
-                        className="w-full h-full object-cover transition-transform duration-1000 grayscale group-hover:grayscale-0 group-hover:scale-105"
+                        className={`w-full h-full object-cover transition-all duration-1500 ease-out-expo scale-105 group-hover:scale-100 ${
+                          isExpanded ? 'grayscale-0' : 'grayscale group-hover:grayscale-0'
+                        }`}
                       />
-                    <div className="absolute inset-0 bg-[#0F1E2E]/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center space-x-6">
-                      <Linkedin
-                        size={20}
-                        className="text-[#F7F5F0] hover:text-[#C6A75E] cursor-pointer transition-colors"
-                      />
-                      <Twitter
-                        size={20}
-                        className="text-[#F7F5F0] hover:text-[#C6A75E] cursor-pointer transition-colors"
-                      />
-                      <Instagram
-                        size={20}
-                        className="text-[#F7F5F0] hover:text-[#C6A75E] cursor-pointer transition-colors"
-                      />
+                      
+                      {/* Gradient Overlay */}
+                      <div className="absolute inset-0 bg-linear-to-t from-[#0F1E2E] via-[#0F1E2E]/20 to-transparent opacity-80 group-hover:opacity-40 transition-opacity duration-700"></div>
+
+                      {/* Content Overlay - Minimalist Glass Card Style */}
+                      <div className="absolute inset-x-0 bottom-0 p-4 md:p-6 transform transition-transform duration-700">
+                        <div className={`relative p-6 md:p-8 bg-white/5 backdrop-blur-md border border-white/10 rounded-sm shadow-xl transition-all duration-700 ${isExpanded ? 'translate-y-0 bg-white/10' : 'translate-y-4 group-hover:translate-y-0 group-hover:bg-white/10'}`}>
+                          <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#F7F5F0] serif mb-2 leading-tight">
+                            {attorney.name}
+                          </h3>
+                          <p className="text-[#C6A75E] font-bold text-[9px] md:text-[10px] uppercase tracking-[0.4em] mb-6">
+                            {attorney.role}
+                          </p>
+
+                          {/* Compact Socials Only */}
+                          <div className="flex space-x-5 pt-4 border-t border-white/10 mt-2">
+                            <Linkedin
+                              size={14}
+                              className="text-[#F7F5F0]/50 hover:text-[#C6A75E] cursor-pointer transition-all duration-300 hover:scale-110"
+                            />
+                            <Twitter
+                              size={14}
+                              className="text-[#F7F5F0]/50 hover:text-[#C6A75E] cursor-pointer transition-all duration-300 hover:scale-110"
+                            />
+                            <Instagram
+                              size={14}
+                              className="text-[#F7F5F0]/50 hover:text-[#C6A75E] cursor-pointer transition-all duration-300 hover:scale-110"
+                            />
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div className="text-center">
-                    <h3 className="text-2xl font-bold text-[#0F1E2E] serif mb-1">{attorney.name}</h3>
-                    <p className="text-[#C6A75E] font-bold text-[10px] uppercase tracking-[0.3em] mb-2">
-                      {attorney.role}
-                    </p>
-                    <p className="text-[#0F1E2E]/40 font-bold text-[8px] uppercase tracking-[0.4em] mb-4 italic">
-                      {attorney.expertise}
-                    </p>
-                    <div className="w-8 h-0.5 bg-slate-200 mx-auto"></div>
-                  </div>
-                </div>
-              ))}
+                  </button>
+                );
+              })}
             </div>
           )}
         </div>
       </section>
 
-      <section className="py-32 text-center bg-white border-b border-[#0F1E2E]/5">
-        <div className="max-w-3xl mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-[#0F1E2E] mb-8 serif italic">
-            Secure Your Interests.
-          </h2>
-          <p className="text-slate-700 mb-12 text-lg font-light leading-relaxed px-4">
-            Our specialized partners are available for high-level consultations on matters of
-            regional and international significance. Let us design the shield your ambitions
-            require.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <Link
-              to="/contact"
-              className="w-full sm:w-auto px-12 py-5 bg-[#0F1E2E] text-white font-bold uppercase tracking-[0.2em] text-[10px] hover:bg-[#C6A75E] hover:text-[#0F1E2E] transition-all duration-300 shadow-xl"
-            >
-              Request Strategic Review
-            </Link>
-            <a
-              href="tel:09065624016"
-              className="w-full sm:w-auto px-12 py-5 border border-[#0F1E2E]/20 text-[#0F1E2E] font-bold uppercase tracking-[0.2em] text-[10px] hover:border-[#0F1E2E] transition-all duration-300"
-            >
-              Priority Line
-            </a>
-          </div>
-        </div>
-      </section>
     </div>
   );
 };

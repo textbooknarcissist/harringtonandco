@@ -11,12 +11,12 @@ const ContactPage: React.FC = () => {
           <img
             src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&q=80&w=2000"
             alt="Strategic Consultation"
-            className="w-full h-full object-cover object-center grayscale brightness-[0.4] scale-105"
+            className="w-full h-full object-cover object-center grayscale brightness-[0.4] scale-105 keep-grayscale"
           />
           <div className="absolute inset-0 bg-[#0F1E2E]/60 backdrop-blur-[2px]"></div>
         </div>
 
-        <div className="max-w-6xl mx-auto relative z-10 -mt-20">
+        <div className="max-w-6xl mx-auto relative z-10">
           <div className="flex flex-col items-center mb-8 md:mb-12">
             <span className="text-[#C6A75E] font-bold tracking-[0.6em] uppercase text-[10px] md:text-xs mb-4 animate-in fade-in slide-in-from-top-4 duration-1000">
               Direct Access
@@ -44,15 +44,30 @@ const ContactPage: React.FC = () => {
       <FAQ />
 
       {/* Main Contact Form Section */}
-      <ContactSection />
+      <ContactSection variant="blue" />
 
-      {/* Global Presence Section - Background set to White */}
-      <div className="w-full h-[600px] bg-white relative overflow-hidden border-t border-slate-100">
-        {/* Subtle Map Graphic Background */}
-        <div className="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center grayscale pointer-events-none"></div>
+      {/* Global Presence Section - Interactive Live Map */}
+      <section className="w-full h-[700px] bg-[#0F1E2E] relative overflow-hidden border-t border-white/5">
+        {/* Interactive Google Map with Premium Dark Filter */}
+        <div className="absolute inset-0 z-0">
+          <iframe
+            title="Harrington & Co Global Headquarters"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31715.15421528659!2d3.3886561!3d6.4526284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b171f1e1f1e%3A0x1e1e1e1e1e1e1e1e!2sVictoria+Island%2C+Lagos!5e0!3m2!1sen!2sng!4v1712531234567"
+            className="w-full h-full border-0 grayscale hover:grayscale-0 transition-all duration-1000 opacity-60"
+            style={{ 
+              filter: 'invert(90%) hue-rotate(180deg) brightness(95%) contrast(90%)',
+              pointerEvents: 'auto'
+            }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+          {/* Subtle gradient to blend map with dark theme */}
+          <div className="absolute inset-0 pointer-events-none bg-linear-to-t from-[#0F1E2E] via-transparent to-[#0F1E2E]/30"></div>
+        </div>
 
-        <div className="absolute inset-0 flex items-center justify-center px-6">
-          <div className="text-center max-w-2xl w-full bg-[#F7F5F0] p-10 md:p-20 border border-[#C6A75E]/20 shadow-[0_40px_80px_rgba(15,30,46,0.1)] relative group">
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none px-6">
+          <div className="text-center max-w-2xl w-full bg-[#F7F5F0]/95 backdrop-blur-md p-10 md:p-20 border border-[#C6A75E]/20 shadow-[0_40px_80px_rgba(15,30,46,0.2)] relative group pointer-events-auto">
             <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white p-4 rounded-full border border-[#C6A75E]/30 shadow-sm transition-transform group-hover:scale-110">
               <div className="w-3 h-3 rounded-full bg-[#C6A75E] animate-pulse"></div>
             </div>
@@ -77,7 +92,7 @@ const ContactPage: React.FC = () => {
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 };
