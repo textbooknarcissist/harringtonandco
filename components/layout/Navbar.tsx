@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight, Sun, Moon } from 'lucide-react';
+import React, { useRef, useState, useEffect } from 'react';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { Link, NavLink } from 'react-router-dom';
 import { NAV_LINKS } from '../../constants';
 import Logo from '../ui/Logo';
-import { useThemeStore } from '../../store/useThemeStore';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { isDarkMode, toggleDarkMode } = useThemeStore();
+  const menuButtonRef = useRef<HTMLButtonElement | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,6 +16,13 @@ const Navbar: React.FC = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const closeMenu = () => {
+    setIsOpen(false);
+    window.requestAnimationFrame(() => {
+      menuButtonRef.current?.focus();
+    });
+  };
 
   return (
     <>
@@ -58,9 +64,8 @@ const Navbar: React.FC = () => {
                 <NavLink
                   key={link.name}
                   to={link.href}
-                  onClick={() => setIsOpen(false)}
                   className={({ isActive }) =>
-                    `text-[9px] font-bold uppercase tracking-[0.3em] transition-all relative group py-2 ${
+                    `text-[9px] font-bold uppercase tracking-[0.3em] transition-colors relative group py-2 ${
                       isActive ? 'text-[#C6A75E]' : 'text-[#F7F5F0]/60 hover:text-[#C6A75E]'
                     }`
                   }
@@ -70,19 +75,9 @@ const Navbar: React.FC = () => {
                 </NavLink>
               ))}
 
-              {/* Theme Toggle */}
-              <button
-                onClick={toggleDarkMode}
-                className="p-2 text-[#F7F5F0]/60 hover:text-[#C6A75E] transition-colors focus:outline-none"
-                aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-              >
-                {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
-              </button>
-
               <Link
                 to="/contact"
-                onClick={() => setIsOpen(false)}
-                className="hidden md:flex items-center gap-2 px-8 py-3 bg-[#C6A75E] text-[#0F1E2E] font-bold rounded-sm hover:bg-[#F7F5F0] transition-all duration-300 tracking-widest uppercase text-[10px] shadow-lg"
+                className="hidden md:flex items-center gap-2 px-8 py-3 bg-[#C6A75E] text-[#0F1E2E] font-bold rounded-sm hover:bg-[#F7F5F0] transition-colors duration-300 tracking-widest uppercase text-[10px] shadow-lg"
               >
                 Hire Now <ArrowUpRight size={14} className="shrink-0" />
               </Link>
@@ -91,13 +86,7 @@ const Navbar: React.FC = () => {
             {/* Mobile Actions */}
             <div className="md:hidden flex items-center gap-4">
               <button
-                onClick={toggleDarkMode}
-                className="p-2 text-[#F7F5F0]/60 hover:text-[#C6A75E] transition-colors focus:outline-none"
-                aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-              >
-                {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
-              </button>
-              <button
+                ref={menuButtonRef}
                 onClick={() => setIsOpen(true)}
                 className="text-[#F7F5F0] p-2 hover:text-[#C6A75E] transition-colors"
                 aria-label="Open menu"
@@ -111,63 +100,62 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* COMPACT MOBILE SIDEBAR */}
-        <div
-          id="mobile-menu"
-          className={`fixed top-4 right-4 h-auto w-64 bg-[#0F1E2E]/90 backdrop-blur-xl z-60 transform transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] shadow-[-10px_10px_40px_rgba(0,0,0,0.5)] flex flex-col rounded-2xl border border-white/10 ${
-            isOpen ? 'translate-x-0 opacity-100 scale-100' : 'translate-x-full opacity-0 scale-95 pointer-events-none'
-          }`}
-          aria-hidden={!isOpen}
-        >
-          <div className="flex flex-col h-full p-6 pt-16 relative">
-            <button
-              onClick={() => setIsOpen(false)}
-              className="absolute top-5 right-5 text-[#F7F5F0]/60 hover:text-[#C6A75E] transition-colors"
-              aria-label="Close menu"
+        {isOpen ? (
+          <>
+            <div
+              id="mobile-menu"
+              className="fixed top-4 right-4 h-auto w-64 bg-[#0F1E2E]/90 backdrop-blur-xl z-60 transform transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] shadow-[-10px_10px_40px_rgba(0,0,0,0.5)] flex flex-col rounded-2xl border border-white/10 translate-x-0 opacity-100 scale-100"
             >
-              <X className="w-5 h-5" />
-            </button>
-
-            <div className="flex flex-col space-y-1">
-              {NAV_LINKS.map((link) => (
-                <NavLink
-                  key={link.name}
-                  to={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className={({ isActive }) =>
-                    `text-[9px] font-bold uppercase tracking-[0.2em] py-4 px-4 transition-all rounded-lg border-l-2 ${
-                      isActive
-                        ? 'text-[#C6A75E] border-[#C6A75E] bg-white/5'
-                        : 'text-[#F7F5F0]/70 border-transparent hover:text-[#C6A75E] hover:bg-white/5'
-                    }`
-                  }
+              <div className="flex flex-col h-full p-6 pt-16 relative">
+                <button
+                  onClick={closeMenu}
+                  className="absolute top-5 right-5 text-[#F7F5F0]/60 hover:text-[#C6A75E] transition-colors"
+                  aria-label="Close menu"
                 >
-                  {link.name}
-                </NavLink>
-              ))}
+                  <X className="w-5 h-5" />
+                </button>
 
-              <Link
-                to="/contact"
-                onClick={() => setIsOpen(false)}
-                className="mt-4 px-4 py-4 bg-[#C6A75E] text-[#0F1E2E] font-bold uppercase tracking-[0.2em] text-center text-[9px] hover:bg-[#F7F5F0] transition-colors rounded-lg flex items-center justify-center gap-2"
-              >
-                Hire Now <ArrowUpRight size={14} className="shrink-0" />
-              </Link>
+                <div className="flex flex-col space-y-1">
+                  {NAV_LINKS.map((link) => (
+                    <NavLink
+                      key={link.name}
+                      to={link.href}
+                      onClick={closeMenu}
+                      className={({ isActive }) =>
+                        `text-[9px] font-bold uppercase tracking-[0.2em] py-4 px-4 transition-all rounded-lg border-l-2 ${
+                          isActive
+                            ? 'text-[#C6A75E] border-[#C6A75E] bg-white/5'
+                            : 'text-[#F7F5F0]/70 border-transparent hover:text-[#C6A75E] hover:bg-white/5'
+                        }`
+                      }
+                    >
+                      {link.name}
+                    </NavLink>
+                  ))}
+
+                  <Link
+                    to="/contact"
+                    onClick={closeMenu}
+                    className="mt-4 px-4 py-4 bg-[#C6A75E] text-[#0F1E2E] font-bold uppercase tracking-[0.2em] text-center text-[9px] hover:bg-[#F7F5F0] transition-colors rounded-lg flex items-center justify-center gap-2"
+                  >
+                    Hire Now <ArrowUpRight size={14} className="shrink-0" />
+                  </Link>
+                </div>
+
+                <div className="mt-8 pb-2 text-center">
+                  <Logo className="w-6 h-6 mx-auto mb-2 opacity-30" light={true} />
+                  <p className="text-[6px] text-white/20 tracking-[0.4em] uppercase">Private Advisory</p>
+                </div>
+              </div>
             </div>
 
-            <div className="mt-8 pb-2 text-center">
-              <Logo className="w-6 h-6 mx-auto mb-2 opacity-30" light={true} />
-              <p className="text-[6px] text-white/20 tracking-[0.4em] uppercase">Private Advisory</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Overlay Backdrop */}
-        <div
-          className={`fixed inset-0 bg-black/40 backdrop-blur-sm md:hidden z-55 transition-opacity duration-500 ${
-            isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-          }`}
-          onClick={() => setIsOpen(false)}
-        ></div>
+            {/* Overlay Backdrop */}
+            <div
+              className="fixed inset-0 bg-black/40 backdrop-blur-sm md:hidden z-55 transition-opacity duration-500 opacity-100 pointer-events-auto"
+              onClick={closeMenu}
+            ></div>
+          </>
+        ) : null}
       </nav>
     </>
   );

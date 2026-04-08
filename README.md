@@ -1,71 +1,46 @@
-﻿# Harrington & Co
+# Harrington and Co
 
-A premium, editorial-style website for a boutique law firm. Built as a static-friendly, multi-page SPA with React 19, TypeScript, Tailwind CSS v4, and Vite.
+A polished React portfolio site for a fictional boutique law firm. The project is built to feel premium and production-ready while still staying intentionally demo-friendly and lightweight.
 
-## Highlights
-- Brand-first design system with custom typography, high-contrast palette, and rich editorial layouts.
-- BrowserRouter-based client-side routing with lazy-loaded pages for fast navigation.
-- Composable feature sections (hero, practice previews, testimonials, FAQs, track record).
-- Contact workflow with React Hook Form plus Zod validation.
-- Motion and micro-interactions via CSS keyframes, intersection observers, and page transition loading states.
-
-## Pages
-- Home: hero, about, practice preview, blog preview, FAQ, contact, testimonials.
-- About: heritage narrative, track record, mission/vision/values.
-- Practice Areas: specialized services, execution strategy, practice leads.
-- Resources: blog listing with featured insight.
-- Contact: full-screen hero, expanded FAQ, validated contact form, global presence block.
-- Compliance: privacy policy and terms pages.
+## What's Included
+- Premium editorial-style landing pages for the firm, practice areas, blog, about, and contact flow.
+- Client-side routing with React Router and route-level code splitting.
+- Reusable feature sections and layout components for a clean, maintainable structure.
+- Contact form validation with React Hook Form and Zod.
+- Smooth scrolling, polished navigation, and a static-first load experience.
+- Local favicon and social preview assets for better browser and sharing presentation.
 
 ## Tech Stack
-- React 19, TypeScript 5, Vite 6
-- Tailwind CSS 4 via PostCSS
-- react-hook-form plus zod for form validation
-- lucide-react for icons
-
-## Architecture
-- React Router is wired in App.tsx with route-level code splitting.
-- Page-level code splitting using React.lazy and Suspense with components/ui/PageLoader.tsx.
-- Feature sections live in components/features/ and are composed into pages in pages/.
-- Centralized content and typed models in constants.tsx and types/.
+- React 19
+- TypeScript
+- Tailwind CSS 4
+- Vite
+- React Router
+- React Hook Form
+- Zod
+- lucide-react
 
 ## Project Structure
-- App.tsx and main.tsx
-- pages/
-- components/features/
-- components/layout/
-- components/ui/
-- types/
-- assets/
-- index.css
+- `App.tsx` and `main.tsx` for app shell and routing
+- `pages/` for page-level composition
+- `components/features/` for section-driven UI
+- `components/layout/` for shared navigation and footer chrome
+- `components/ui/` for reusable primitives
+- `constants.tsx` for curated firm content
+- `index.css` for global styles and motion utilities
 
-## Running Locally
+## Run Locally
 ```bash
 npm install
 npm run dev
 ```
 
-If you want to experiment with API-backed content, copy `.env.example` to `.env` and set `VITE_USE_MOCK_DATA=false` plus a real `VITE_API_BASE_URL`.
-
-## Build and Preview
+## Build
 ```bash
 npm run build
-npm run preview
 ```
 
-## Customization
-- Update firm content, FAQs, and blog data in constants.tsx.
-- Toggle mock/demo versus API-backed content in `.env.example` and `services/contentService.ts`.
-- Adjust color tokens and fonts in index.css and tailwind.config.js.
-- Add or reorder sections by editing the page components in pages/.
-- Replace imagery directly inside feature components in components/features/.
-
-## Deployment
-- Vite outputs a static build to dist/.
-- BrowserRouter works best with a rewrite fallback on static hosts.
-- For subpath hosting, set base in vite.config.ts.
-
 ## Notes
-- The contact form currently simulates a request and logs to the console in components/features/ContactSection.tsx.
-- Automated tests, ESLint 9 flat config, and Prettier are included.
-- components/features/EnterpriseTicker.tsx uses framer-motion for the scrolling logo ticker.
+- This is a portfolio project, not a backend-driven product.
+- The content is intentionally curated and mostly static so the site stays fast and presentation-focused.
+- BrowserRouter works best with a rewrite fallback on static hosting.

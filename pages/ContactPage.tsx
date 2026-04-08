@@ -62,7 +62,7 @@ const ContactPage: React.FC = () => {
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
           />
-          {/* Subtle gradient to blend map with dark theme */}
+          {/* Subtle gradient to blend map with the page */}
           <div className="absolute inset-0 pointer-events-none bg-linear-to-t from-[#0F1E2E] via-transparent to-[#0F1E2E]/30"></div>
         </div>
 

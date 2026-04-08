@@ -1,0 +1,27 @@
+<svg viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Harrington and Co social preview">
+  <rect width="1200" height="630" fill="#0F1E2E" />
+  <rect x="56" y="56" width="1088" height="518" rx="36" fill="url(#paint0_linear)" stroke="rgba(255,255,255,0.08)" />
+  <circle cx="1016" cy="136" r="156" fill="#C6A75E" fill-opacity="0.08" />
+  <circle cx="1048" cy="504" r="220" fill="#C6A75E" fill-opacity="0.05" />
+  <g transform="translate(106 124)">
+    <path d="M32 18H84" stroke="#C6A75E" stroke-width="3" stroke-linecap="square" />
+    <path d="M58 18V138" stroke="#C6A75E" stroke-width="8" stroke-linecap="square" />
+    <path d="M106 18V138" stroke="#C6A75E" stroke-width="8" stroke-linecap="square" />
+    <path d="M58 78H106" stroke="#C6A75E" stroke-width="6" stroke-linecap="square" />
+  </g>
+  <text x="120" y="330" fill="#F7F5F0" font-family="Georgia, 'Times New Roman', serif" font-size="92" font-weight="700" letter-spacing="1">
+    Harrington and Co
+  </text>
+  <text x="120" y="395" fill="#C6A75E" font-family="Montserrat, Arial, sans-serif" font-size="28" font-weight="700" letter-spacing="8">
+    STRATEGIC INSIGHT. SOPHISTICATED ADVOCACY.
+  </text>
+  <text x="120" y="455" fill="#F7F5F0" fill-opacity="0.72" font-family="Montserrat, Arial, sans-serif" font-size="24" font-weight="400">
+    Boutique legal counsel for corporate, maritime, and intellectual property matters.
+  </text>
+  <defs>
+    <linearGradient id="paint0_linear" x1="60" y1="80" x2="1140" y2="560" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#12263A" />
+      <stop offset="1" stop-color="#0A121A" />
+    </linearGradient>
+  </defs>
+</svg>

@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
                 <a
                   href="mailto:mfredebel@gmail.com"
                   className="group flex items-center gap-4 py-2 border-b border-white/5 hover:border-[#C6A75E]/30 transition-all"
-                  aria-label="Send us an email"
+                  aria-label="Send me an email"
                 >
                   <div className="w-8 h-8 bg-white/5 flex items-center justify-center rounded-sm group-hover:bg-[#C6A75E]/10">
                     <Mail size={14} className="text-[#C6A75E]" />
@@ -40,16 +40,16 @@ const Footer: React.FC = () => {
                 </a>
 
                 <a
-                  href="tel:09065624016"
+                  href="https://wa.me/2349065624016"
                   className="group flex items-center gap-4 py-2 border-b border-white/5 hover:border-[#C6A75E]/30 transition-all"
-                  aria-label="Call our office"
+                  aria-label="Chat with me on WhatsApp"
                 >
                   <div className="w-8 h-8 bg-white/5 flex items-center justify-center rounded-sm group-hover:bg-[#C6A75E]/10">
                     <Phone size={14} className="text-[#C6A75E]" />
                   </div>
                   <div>
                     <span className="block text-[10px] text-white/60 uppercase tracking-[0.2em] font-bold">
-                      Phone
+                      WhatsApp
                     </span>
                     <span className="block text-xs font-light group-hover:text-[#C6A75E] transition-colors font-sans">
                       09065624016
@@ -121,14 +121,14 @@ const Footer: React.FC = () => {
             </h3>
             <div className="flex gap-3">
               {[
-                { icon: Twitter, href: '#', label: 'Twitter' },
-                { icon: Linkedin, href: '#', label: 'LinkedIn' },
-                { icon: Instagram, href: '#', label: 'Instagram' },
+                { icon: Twitter, href: 'https://x.com/mfredebel', label: 'X' },
+                { icon: Linkedin, href: 'https://www.linkedin.com/in/fredebel-m-bab914282/', label: 'LinkedIn' },
+                { icon: Instagram, href: 'https://www.instagram.com/mfredebel/', label: 'Instagram' },
               ].map((social, i) => (
                 <a
                   key={i}
                   href={social.href}
-                  aria-label={`Follow us on ${social.label}`}
+                  aria-label={`Visit my ${social.label} profile`}
                   className="w-10 h-10 border border-white/10 flex items-center justify-center hover:bg-[#C6A75E] hover:border-[#C6A75E] hover:text-[#0F1E2E] transition-all duration-500 rounded-sm"
                 >
                   <social.icon size={16} />
@@ -141,7 +141,7 @@ const Footer: React.FC = () => {
         {/* Bottom Bar: Copyright (Left) Credit (Right) */}
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4 font-sans">
           <p className="text-[9px] text-white/30 uppercase tracking-widest font-light order-2 md:order-1 text-center md:text-left">
-            © 2026 Fredebel Menoh. All Rights Reserved.
+            &copy; 2026 Fredebel Menoh. All Rights Reserved.
           </p>
 
           <div className="flex items-center gap-1.5 text-[8px] text-white/20 uppercase tracking-[0.3em] font-bold order-1 md:order-2">
