@@ -71,7 +71,7 @@ const PrivacyPolicyPage: React.FC = () => {
             </p>
             <div className="flex flex-col gap-2">
               <span className="text-xs font-bold uppercase tracking-widest text-[#C6A75E]">Email</span>
-              <a href="mailto:mfredebel@gmail.com" className="text-[#0F1E2E] font-medium hover:text-[#C6A75E] transition-colors">mfredebel@gmail.com</a>
+              <a href="mailto:mfredebel@gmail.com" target="_blank" rel="noopener noreferrer" className="text-[#0F1E2E] font-medium hover:text-[#C6A75E] transition-colors">mfredebel@gmail.com</a>
             </div>
           </section>
         </div>

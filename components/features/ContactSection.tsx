@@ -51,7 +51,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ variant = 'white' }) =>
                 </div>
                 <div className="ml-6">
                   <h3 className={`text-[10px] font-bold uppercase tracking-widest mb-2 ${isNavy ? 'text-[#F7F5F0]/30' : 'text-[#0F1E2E]/30'}`}>WhatsApp Chat</h3>
-                  <a href="https://wa.me/2349065624016" className={`text-xl md:text-2xl font-bold hover:text-[#C6A75E] transition-colors serif ${isNavy ? 'text-[#F7F5F0]' : 'text-[#0F1E2E]'}`}>
+                  <a href="https://wa.me/2349065624016" target="_blank" rel="noopener noreferrer" className={`text-xl md:text-2xl font-bold hover:text-[#C6A75E] transition-colors serif ${isNavy ? 'text-[#F7F5F0]' : 'text-[#0F1E2E]'}`}>
                     09065624016
                   </a>
                 </div>
@@ -63,7 +63,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ variant = 'white' }) =>
                 </div>
                 <div className="ml-6">
                   <h3 className={`text-[10px] font-bold uppercase tracking-widest mb-2 ${isNavy ? 'text-[#F7F5F0]/30' : 'text-[#0F1E2E]/30'}`}>Secure Email</h3>
-                  <a href="mailto:mfredebel@gmail.com" className={`text-xl md:text-2xl font-bold hover:text-[#C6A75E] transition-colors break-all serif ${isNavy ? 'text-[#F7F5F0]' : 'text-[#0F1E2E]'}`}>
+                  <a href="mailto:mfredebel@gmail.com" target="_blank" rel="noopener noreferrer" className={`text-xl md:text-2xl font-bold hover:text-[#C6A75E] transition-colors break-all serif ${isNavy ? 'text-[#F7F5F0]' : 'text-[#0F1E2E]'}`}>
                     mfredebel@gmail.com
                   </a>
                 </div>

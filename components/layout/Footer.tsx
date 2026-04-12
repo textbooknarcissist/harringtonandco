@@ -23,6 +23,8 @@ const Footer: React.FC = () => {
               <div className="space-y-4">
                 <a
                   href="mailto:mfredebel@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group flex items-center gap-4 py-2 border-b border-white/5 hover:border-[#C6A75E]/30 transition-all"
                   aria-label="Send me an email"
                 >
@@ -41,6 +43,8 @@ const Footer: React.FC = () => {
 
                 <a
                   href="https://wa.me/2349065624016"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group flex items-center gap-4 py-2 border-b border-white/5 hover:border-[#C6A75E]/30 transition-all"
                   aria-label="Chat with me on WhatsApp"
                 >
@@ -128,6 +132,8 @@ const Footer: React.FC = () => {
                 <a
                   key={i}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={`Visit my ${social.label} profile`}
                   className="w-10 h-10 border border-white/10 flex items-center justify-center hover:bg-[#C6A75E] hover:border-[#C6A75E] hover:text-[#0F1E2E] transition-all duration-500 rounded-sm"
                 >

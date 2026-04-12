@@ -16,6 +16,6 @@ describe('Navbar', () => {
     expect(within(navigation).getAllByRole('link', { name: /practice areas/i }).length).toBeGreaterThan(0);
     expect(within(navigation).getAllByRole('link', { name: /resources/i }).length).toBeGreaterThan(0);
     expect(within(navigation).getAllByRole('link', { name: /contact/i }).length).toBeGreaterThan(0);
-    expect(within(navigation).getAllByRole('button', { name: /switch to dark mode/i }).length).toBeGreaterThan(0);
+    expect(within(navigation).getByRole('button', { name: /open menu/i })).toBeInTheDocument();
   });
 });
