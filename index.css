@@ -3,15 +3,15 @@
 /* Global Styles for Harrington and Co */
 body {
   font-family: 'Montserrat', sans-serif;
-  background-color: #FBFBF9;
-  /* Slightly brighter refined paper color */
-  color: #0F1E2E;
+  background-color: #0F1E2E;
+  color: #F7F5F0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 html {
   scroll-behavior: smooth;
+  background-color: #0F1E2E;
 }
 
 h1,
