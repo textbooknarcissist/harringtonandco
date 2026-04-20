@@ -7,9 +7,9 @@ import BackToTop from './components/ui/BackToTop';
 import ScrollToTop from './components/ui/ScrollToTop';
 import ErrorBoundary from './components/ui/ErrorBoundary';
 import PageLoader from './components/ui/PageLoader';
+import HomePage from './pages/HomePage';
 
-// Lazy load pages for performance
-const HomePage = lazy(() => import('./pages/HomePage'));
+// Lazy load secondary pages for performance
 const AboutPage = lazy(() => import('./pages/AboutPage'));
 const PracticeAreasPage = lazy(() => import('./pages/PracticeAreasPage'));
 const BlogPage = lazy(() => import('./pages/BlogPage'));
